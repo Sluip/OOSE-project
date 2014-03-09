@@ -2,23 +2,28 @@
 using System.Collections;
 
 public class AttackScript : MonoBehaviour {
-
-	public int damage = 10;
-	public RangeDetectionScript rangeReference;
-	public HealthScript healthReference;
-
+	
+	private int damageCount = 10;
+	public GameObject enemy;
+	
 	// Use this for initialization
 	void Start () {
-	
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-		if (rangeReference.inRange() && Input.GetKeyDown ("space"))
+		
+		if (HealthScript.inRange && Input.GetKeyDown ("r"))
 		{
-			healthReference.Damage(damage);
+			Debug.Log (HealthScript.health);
+			HealthScript.health -= damageCount;
+			
+			if(HealthScript.health <= 0)
+			{
+				Destroy(enemy.gameObject);
+			}
 		}
-	
+		
 	}
 }

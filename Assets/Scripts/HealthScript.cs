@@ -1,28 +1,29 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class HealthScript : MonoBehaviour {
 
-	public int health = 100;
-	public bool isEnemy = true;
+public static int health = 100;
+public float range;
+public Transform player;
+public static bool inRange = false;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+// Use this for initialization
+void Start () {
 
-	public void Damage(int damageCount)
-	{
-		health -= damageCount;
+}
 
-		if(health <= 0)
-		{
-			Destroy(gameObject);
-		}
-	}
+// Update is called once per frame
+void Update () {
+
+if(Vector2.Distance(transform.position, player.position)<range)
+{
+inRange = true;
+Debug.Log (health);
+}
+else
+{
+inRange = false;
+}
+}
 }
