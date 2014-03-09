@@ -3,8 +3,10 @@ using System.Collections;
 
 public class HealthScript : MonoBehaviour {
 
-	public int health = 100;
-	public bool isEnemy = true;
+	public static int health = 100;
+	public float range;
+	public Transform player;
+	public static bool inRange = false;
 
 	// Use this for initialization
 	void Start () {
@@ -14,17 +16,14 @@ public class HealthScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		Debug.Log (health);
-	
-	}
-
-	public void Damage(int damageCount)
-	{
-		health -= damageCount;
-
-		if(health <= 0)
+		if(Vector2.Distance(transform.position, player.position)<range)
 		{
-			Destroy(gameObject);
+			inRange = true;
+			Debug.Log (health);
+		}
+		else
+		{
+			inRange = false;
 		}
 	}
 }
