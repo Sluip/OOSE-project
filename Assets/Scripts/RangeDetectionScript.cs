@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FightingScript : MonoBehaviour {
+public class RangeDetectionScript : MonoBehaviour {
 
 	public float speed;
 	public float range;
@@ -15,12 +15,10 @@ public class FightingScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-		Debug.Log (inRange());
 	
 	}
 
-	bool inRange()
+	public bool inRange()
 	{
 		if(Vector2.Distance(transform.position, player.position)<range)
 		{
