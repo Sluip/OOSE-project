@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CharMovement3 : MonoBehaviour {
+public class CharacterMovementScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
