@@ -822,10 +822,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 1280068562}
   - 50: {fileID: 1280068564}
-  - 114: {fileID: 1280068563}
   - 61: {fileID: 1280068565}
-  - 114: {fileID: 1280068566}
   - 61: {fileID: 1280068568}
+  - 114: {fileID: 1280068563}
+  - 114: {fileID: 1280068566}
   - 114: {fileID: 1280068567}
   m_Layer: 0
   m_Name: BitchObject
@@ -858,6 +858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8318779ab6457034ab84635e6e16851c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpScript: {fileID: 0}
   maxMovementSpeed: 10
 --- !u!50 &1280068564
 Rigidbody2D:
