@@ -20,5 +20,8 @@ public class JumpingScript : MonoBehaviour {
 			rigidbody2D.AddForce(new Vector2(0, jumpSpeed));
 		}
 	}
+	public bool Grounded() {
+		return grounded;
+		}
 }
 
