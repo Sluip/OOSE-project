@@ -25,9 +25,11 @@ GameObject:
   - 4: {fileID: 400002}
   - 212: {fileID: 21200000}
   - 95: {fileID: 9500000}
+  - 61: {fileID: 6100002}
+  - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: EvilBitch
-  m_TagString: Untagged
+  m_Name: Bitch
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,11 +43,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 400004}
   - 50: {fileID: 5000000}
+  - 114: {fileID: 11400002}
   - 61: {fileID: 6100000}
-  - 114: {fileID: 11400000}
+  - 114: {fileID: 11400004}
   m_Layer: 0
-  m_Name: EvilBitchObject
-  m_TagString: Enemy
+  m_Name: BitchObject
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,8 +83,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.255229, y: -1.74376202, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalPosition: {x: -6.00033236, y: -1.74376202, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
   m_Father: {fileID: 0}
@@ -91,7 +94,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
-  m_Mass: 111
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 1
@@ -111,6 +114,17 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: .656109989, y: 1.19529283}
   m_Center: {x: .112429142, y: -.0222702026}
+--- !u!61 &6100002
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 1.20948172, y: 1.23000002}
+  m_Center: {x: .0266325548, y: 0}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 2
@@ -130,16 +144,42 @@ MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c4768c8b1d4fa642be96d8e1d1cb3e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  isHitting: 0
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e3954d9cbe417549b2435cc392ab738, type: 3}
+  m_Script: {fileID: 11500000, guid: 8318779ab6457034ab84635e6e16851c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  range: 1
-  player: {fileID: 0}
-  inRange: 0
+  maxMovementSpeed: 10
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619d5bcfbd2235e4293da100cf105c4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundChecker: {fileID: 400000}
+  consideredGround:
+    serializedVersion: 2
+    m_Bits: 512
+  jumpSpeed: 50
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
