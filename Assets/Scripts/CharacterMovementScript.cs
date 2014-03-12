@@ -31,8 +31,8 @@ public class CharacterMovementScript : MonoBehaviour
 						}
 
 		}
+					}
 
-				}
 		
 
 		void Flip ()

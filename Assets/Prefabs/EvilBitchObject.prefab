@@ -108,7 +108,7 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: dcd87a9ff09a9494f9262b141d2885d9, type: 2}
   m_IsTrigger: 0
   m_Size: {x: .656109989, y: 1.19529283}
   m_Center: {x: .112429142, y: -.0222702026}
@@ -149,7 +149,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 10
-  player: {fileID: 400004, guid: f851bd25fd95d6d45ac31807069d5691, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
