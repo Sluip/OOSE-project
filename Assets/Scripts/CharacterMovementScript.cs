@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CharacterMovementScript : MonoBehaviour
 {
-		public JumpingScript jumpScript;
+		private JumpingScript jumpScript;
 		public float maxMovementSpeed = 10.0f;
 		bool right = true;
 		bool airStop;
@@ -29,6 +29,7 @@ public class CharacterMovementScript : MonoBehaviour
 						} else if (move < 0 && right) {
 								Flip ();
 						}
+
 		}
 
 				}
