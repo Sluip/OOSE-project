@@ -29,9 +29,10 @@ public class CharacterMovementScript : MonoBehaviour
 						} else if (move < 0 && right) {
 								Flip ();
 						}
+
+		}
 					}
 
-				}
 		
 
 		void Flip ()
