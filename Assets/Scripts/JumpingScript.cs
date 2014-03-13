@@ -29,7 +29,6 @@ public class JumpingScript : MonoBehaviour {
 
 			if(jumpSpeed > maxJumpSpeed)
 			{
-				Debug.Log(maxJumpSpeed);
 				jumpSpeed = maxJumpSpeed;
 			}
 		}
@@ -38,7 +37,6 @@ public class JumpingScript : MonoBehaviour {
 		if(Input.GetButton ("Jump"))
 		{
 			isCharging = true;
-			// TODO set running speed--
 		}
 
 		// Jump speed is set to default value when space is pressed down
@@ -57,7 +55,6 @@ public class JumpingScript : MonoBehaviour {
 		}
 		if(grounded && isCharging)
 		{
-			Debug.Log(jumpSpeed);
 			jumpSpeed += jumpSpeedMultiplier;
 		}
 	}
