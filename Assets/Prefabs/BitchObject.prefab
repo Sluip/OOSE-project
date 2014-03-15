@@ -181,7 +181,7 @@ MonoBehaviour:
   jumpSpeed: 500
   startJumpSpeed: 400
   maxJumpSpeed: 800
-  jumpSpeedMultiplier: 7
+  jumpSpeedMultiplier: 10
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
