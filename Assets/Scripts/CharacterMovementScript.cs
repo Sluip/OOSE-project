@@ -49,16 +49,4 @@ public class CharacterMovementScript : MonoBehaviour
 				transform.localScale = scale;
 		}
 
-		void OnCollisionStay2D (Collision2D coll)
-		{
-			
-			if (coll.gameObject.tag == "Ground" && !jumpScript.Grounded ()) 
-			{
-				if (Mathf.Abs (rigidbody2D.velocity.x) <= 0.0f)
-				{
-					airStop = true;
-				}
-			}
-
-		}
 }
