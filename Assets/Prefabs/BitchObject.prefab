@@ -175,6 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundChecker: {fileID: 400000}
+  jumpMeter: {fileID: 400000, guid: 48a88e0d060f5f849a75800f885a2f4b, type: 2}
   consideredGround:
     serializedVersion: 2
     m_Bits: 512
