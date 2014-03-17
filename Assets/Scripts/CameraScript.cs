@@ -16,21 +16,19 @@ public class CameraScript : MonoBehaviour {
 	void Update () {
 		if (player) {
 
-						Vector3 point = camera.WorldToViewportPoint (player.position);
-						Vector3 delta = player.position - camera.ViewportToWorldPoint (new Vector3 (0.5f, 0.5f, point.z));
-						endpoint = transform.position + delta;
-			if (point.y > 0.7f) {
-				endpoint.y = endpoint.y;
-				topScreen = true;
-			}
-			else if (player.position.y < 1.0f) {
-				topScreen = false;
-			}
+			Vector3 point = camera.WorldToViewportPoint (player.position);
+			Vector3 delta = player.position - camera.ViewportToWorldPoint (new Vector3 (0.5f, 0.5f, point.z));
+			endpoint = transform.position + delta;
+		}
 
-			}
-			if (!topScreen) {
+		else if (player.position.y < 1.0f) {
+			topScreen = false;
+		}
+			
+		if (!topScreen) {
 				endpoint.y = 0.0f;
-			}
+		}
+
 		Debug.Log(topScreen);
 		transform.position = Vector3.SmoothDamp (transform.position, endpoint, ref v, moveSpeed);		
 		}
