@@ -38,6 +38,7 @@ public class JumpingScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update()
 	{
+		Debug.Log (jumpSpeed);
 		// Jump if grounded and jump-button is released
 		if (grounded && isJumping) 
 		{

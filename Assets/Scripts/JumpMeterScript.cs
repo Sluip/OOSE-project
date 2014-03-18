@@ -6,7 +6,7 @@ public class JumpMeterScript : MonoBehaviour {
 	private JumpingScript jumpingScript;
 	private GameObject player;
 	private float gaugePower = 0f;
-	float fullWidth = 0.1f;
+	private float fullWidth = 0.1f;
 	public bool increasing = false;
 
 	// Use this for initialization
@@ -20,7 +20,7 @@ public class JumpMeterScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		if(jumpingScript.grounded && Input.GetButtonDown ("Jump"))
+		if(jumpingScript.grounded && Input.GetButton ("Jump"))
 		{
 			increasing = true;
 		}
