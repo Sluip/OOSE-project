@@ -7,11 +7,15 @@ public class CharacterMovementScript : MonoBehaviour
 		public float maxMovementSpeed = 10.0f;
 		bool right = true;
 		bool airStop;
+		public Transform bitch;
+		Animator anim;
+
 		// Use this for initialization
 		void Start ()
 		{
 			jumpScript = GetComponent<JumpingScript> ();
 			airStop = false;
+			anim = bitch.GetComponent<Animator> ();
 		}
 
 		// Update is called once per frame
@@ -39,7 +43,12 @@ public class CharacterMovementScript : MonoBehaviour
 				}
 		}
 
-		
+		void Update()
+		{
+			float moveX = Input.GetAxis("Horizontal");
+			
+			anim.SetFloat ("speed", Mathf.Abs (moveX));
+		}
 
 		void Flip ()
 		{

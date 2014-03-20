@@ -4,9 +4,10 @@ using System.Collections;
 public class JumpingScript : MonoBehaviour {
 
 	// Use this for initialization
-	[HideInInspector] public bool grounded;
+	[HideInInspector] public bool grounded = false;
 	public Transform groundChecker;
 	public Transform jumpMeter;
+	public Transform bitch;
 	public LayerMask consideredGround;
 	float checkerRadius = 0.2f;
 	[HideInInspector] public float jumpSpeed = 20.0f;
@@ -16,18 +17,25 @@ public class JumpingScript : MonoBehaviour {
 	public float jumpSpeedMultiplier = 400.0f;
 	private bool doubleJumped = false;
 	private float timer;
+	Animator anim;
 
 	void Start () {
 
 		startJumpSpeed = (maxJumpSpeed / 2);
+
+		anim = bitch.GetComponent<Animator> ();
 	}
 	
 	void FixedUpdate () 
 	{
 		grounded = Physics2D.OverlapCircle(groundChecker.position, checkerRadius, consideredGround);
+		anim.SetBool ("Ground", grounded);
 
-		if (grounded)
+		if (grounded) {
 			doubleJumped = false;
+		}
+
+		anim.SetFloat ("vSpeed", rigidbody2D.velocity.y);
 	}
 	
 	public bool Grounded() 
@@ -38,12 +46,13 @@ public class JumpingScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update()
 	{
-		Debug.Log (jumpSpeed);
+		Debug.Log (rigidbody2D.velocity.y);
 		// Jump if grounded and jump-button is released
 		if (grounded && isJumping) 
 		{
 			rigidbody2D.AddForce(new Vector2(0, jumpSpeed));
 			isJumping = false;
+			anim.SetBool ("Ground", false);
 		}
 
 		// Double jump once in mid-air if jump-button is pressed
