@@ -6,38 +6,28 @@ public class CharacterMovementScript : MonoBehaviour
 		private JumpingScript jumpScript;
 		public float maxMovementSpeed = 10.0f;
 		bool right = true;
-		bool airStop;
 		// Use this for initialization
 		void Start ()
 		{
 			jumpScript = GetComponent<JumpingScript> ();
-			airStop = false;
 		}
 
 		// Update is called once per frame
 		void FixedUpdate ()
 		{
-			if (jumpScript.Grounded ()) 
-			{
-				airStop = false;
-			}
-				
-				if (!airStop) 
-				{
-					float move = Input.GetAxis ("Horizontal");
-					rigidbody2D.velocity = new Vector2 (move * maxMovementSpeed, rigidbody2D.velocity.y);
-						
-					if (move > 0 && !right) 
-					{
-						Flip ();
-					}
-					else if (move < 0 && right) 
-					{
-						Flip ();
-					}
 
+				float move = Input.GetAxis ("Horizontal");
+				rigidbody2D.velocity = new Vector2 (move * maxMovementSpeed, rigidbody2D.velocity.y);
+						
+				if (move > 0 && !right) {
+						Flip ();
+				} else if (move < 0 && right) {
+						Flip ();
 				}
 		}
+
+			
+		
 
 		
 
