@@ -19,7 +19,7 @@ public class CameraScript : MonoBehaviour {
 			Vector3 point = camera.WorldToViewportPoint (player.position);
 			Vector3 delta = player.position - camera.ViewportToWorldPoint (new Vector3 (0.5f, 0.5f, point.z));
 			endpoint = transform.position + delta;
-			if (point.y > 0.7f) {
+			if (point.y > 0.95f) {
 				topScreen = true;
 			}
 			else if (player.position.y < 1.0f) {
