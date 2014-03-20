@@ -1,63 +1,60 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class JumpingScript : MonoBehaviour {
+public class JumpingScript : MonoBehaviour
+{
 
+	//Physics2D.IgnoreLayerCollision (LayerMask.NameToLayer ("Player"), LayerMask.NameToLayer ("JumpThrough"), !grounded || rigidbody2D.velocity.y > 0.0f);		
 	// Use this for initialization
-	[HideInInspector] public bool grounded = false;
+	private bool grounded;
 	public Transform groundChecker;
 	public Transform jumpMeter;
 	public Transform bitch;
-	public LayerMask consideredGround;
 	float checkerRadius = 0.2f;
-	[HideInInspector] public float jumpSpeed = 20.0f;
+	[HideInInspector]
+	public float jumpSpeed = 20.0f;
 	private bool isJumping = false;
 	public float startJumpSpeed;
 	public float maxJumpSpeed = 800.0f;
 	public float jumpSpeedMultiplier = 400.0f;
 	private bool doubleJumped = false;
+	private bool jumpThroughPlayer;
 	private float timer;
+	private int bitMask = 1 << 9 | 1 << 10;
 	Animator anim;
 
-	void Start () {
-
+	void Start ()
+	{
 		startJumpSpeed = (maxJumpSpeed / 2);
-
 		anim = bitch.GetComponent<Animator> ();
-	}
-	
-	void FixedUpdate () 
-	{
-		grounded = Physics2D.OverlapCircle(groundChecker.position, checkerRadius, consideredGround);
-		anim.SetBool ("Ground", grounded);
-
-		if (grounded) {
-			doubleJumped = false;
-		}
-
-		anim.SetFloat ("vSpeed", rigidbody2D.velocity.y);
-	}
-	
-	public bool Grounded() 
-	{
-		return grounded;
 	}
 
 	// Update is called once per frame
-	void Update()
+	void Update ()
 	{
-		Debug.Log (rigidbody2D.velocity.y);
+
+				
+		grounded = Physics2D.OverlapCircle (groundChecker.position, checkerRadius, bitMask);
+		anim.SetBool ("Ground", grounded);
+		anim.SetFloat ("vSpeed", rigidbody2D.velocity.y);
+	
+		if (grounded) {
+			doubleJumped = false;
+						
+		}
+
+		if (rigidbody2D.velocity.y < 0.0f) {
+			gameObject.layer = LayerMask.NameToLayer ("Player");
+		}
 		// Jump if grounded and jump-button is released
-		if (grounded && isJumping) 
-		{
-			rigidbody2D.AddForce(new Vector2(0, jumpSpeed));
+		if (grounded && isJumping) {
+			rigidbody2D.AddForce (new Vector2 (0, jumpSpeed));
 			isJumping = false;
 			anim.SetBool ("Ground", false);
 		}
 
 		// Double jump once in mid-air if jump-button is pressed
-		if (!doubleJumped && Input.GetButtonDown ("Jump") && !grounded)
-		{
+		if (!doubleJumped && Input.GetButtonDown ("Jump") && !grounded) {
 			// Set vertical velocity to zero before double jump
 			Vector3 vel = rigidbody2D.velocity;
 			vel.y = 0;
@@ -66,35 +63,35 @@ public class JumpingScript : MonoBehaviour {
 			rigidbody2D.AddForce (new Vector2 (0, startJumpSpeed));
 
 			// Double jump disabled until player grounded
-			if(!grounded && !doubleJumped)
-			{
+			if (!grounded && !doubleJumped) {
 				doubleJumped = true;
 			}
-
 		}
 
 		// Jump when space is released
-		if(!doubleJumped && Input.GetButtonUp ("Jump"))
-		{
+		if (!doubleJumped && Input.GetButtonUp ("Jump")) {
 			isJumping = true;
+			gameObject.layer = LayerMask.NameToLayer ("JumpThroughPlayer");
 
-			if(jumpSpeed > maxJumpSpeed)
-			{
+			if (jumpSpeed > maxJumpSpeed) {
 				jumpSpeed = maxJumpSpeed;
 			}
 		}
 
 		// Jump speed is set to start value when space is pressed down
-		if(Input.GetButtonDown ("Jump"))
-		{
+		if (Input.GetButtonDown ("Jump")) {
 			jumpSpeed = startJumpSpeed;
 		}
 
-		if (grounded && Input.GetButton ("Jump"))
-		{
-			if(jumpSpeed <= maxJumpSpeed)
-			jumpSpeed += (int)(startJumpSpeed * Time.deltaTime);
+		if (grounded && Input.GetButton ("Jump")) {
+			if (jumpSpeed <= maxJumpSpeed)
+				jumpSpeed += (int)(startJumpSpeed * Time.deltaTime);
 		}
+	}
+
+	public bool Grounded ()
+	{
+		return grounded;
 	}
 }
 

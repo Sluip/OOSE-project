@@ -20,7 +20,7 @@ public class JumpMeterScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		if(jumpingScript.grounded && Input.GetButton ("Jump"))
+		if(jumpingScript.Grounded() && Input.GetButton ("Jump"))
 		{
 			increasing = true;
 		}

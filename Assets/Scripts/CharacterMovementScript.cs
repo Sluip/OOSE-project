@@ -3,51 +3,35 @@ using System.Collections;
 
 public class CharacterMovementScript : MonoBehaviour
 {
-		private JumpingScript jumpScript;
 		public float maxMovementSpeed = 10.0f;
 		bool right = true;
-		bool airStop;
 		public Transform bitch;
 		Animator anim;
 
 		// Use this for initialization
 		void Start ()
 		{
-			jumpScript = GetComponent<JumpingScript> ();
-			airStop = false;
-			anim = bitch.GetComponent<Animator> ();
+				anim = bitch.GetComponent<Animator> ();
 		}
 
 		// Update is called once per frame
 		void FixedUpdate ()
 		{
-			if (jumpScript.Grounded ()) 
-			{
-				airStop = false;
-			}
-				
-				if (!airStop) 
-				{
-					float move = Input.GetAxis ("Horizontal");
-					rigidbody2D.velocity = new Vector2 (move * maxMovementSpeed, rigidbody2D.velocity.y);
+				float move = Input.GetAxis ("Horizontal");
+				rigidbody2D.velocity = new Vector2 (move * maxMovementSpeed, rigidbody2D.velocity.y);
 						
-					if (move > 0 && !right) 
-					{
+				if (move > 0 && !right) {
 						Flip ();
-					}
-					else if (move < 0 && right) 
-					{
+				} else if (move < 0 && right) {
 						Flip ();
-					}
-
 				}
 		}
 
-		void Update()
+		void Update ()
 		{
-			float moveX = Input.GetAxis("Horizontal");
+				float moveX = Input.GetAxis ("Horizontal");
 			
-			anim.SetFloat ("speed", Mathf.Abs (moveX));
+				anim.SetFloat ("speed", Mathf.Abs (moveX));
 		}
 
 		void Flip ()
