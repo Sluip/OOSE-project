@@ -75,8 +75,12 @@ public class JumpingScript : MonoBehaviour
 
 						// Jump when space is released
 						if (!doubleJumped && Input.GetButtonUp ("Jump")) {
-								isJumping = true;
-								gameObject.layer = LayerMask.NameToLayer ("JumpThroughPlayer");
+								if(grounded)
+								{
+									isJumping = true;
+									gameObject.layer = LayerMask.NameToLayer ("JumpThroughPlayer");
+								}
+								
 
 								if (jumpSpeed > maxJumpSpeed) {
 										jumpSpeed = maxJumpSpeed;
@@ -109,6 +113,7 @@ public class JumpingScript : MonoBehaviour
 								Vector3 vel = rigidbody2D.velocity;
 								vel.y = 0;
 								rigidbody2D.velocity = vel;
+								gameObject.layer = LayerMask.NameToLayer("JumpThroughPlayer");
 				
 								rigidbody2D.AddForce (new Vector2 (0, startJumpSpeed));
 				
