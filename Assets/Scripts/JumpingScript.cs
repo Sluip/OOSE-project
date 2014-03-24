@@ -3,8 +3,7 @@ using System.Collections;
 
 public class JumpingScript : MonoBehaviour
 {
-
-
+	
 		// Use this for initialization
 		private bool grounded;
 		public Transform groundChecker;
@@ -12,7 +11,6 @@ public class JumpingScript : MonoBehaviour
 		public Transform bitch;
 		float checkerRadius = 0.2f;
 		public float jumpSpeed = 20.0f;
-		private bool isJumping = false;
 		private float startJumpSpeed;
 		public float maxJumpSpeed;
 		public float jumpSpeedMultiplier = 400.0f;
@@ -25,6 +23,7 @@ public class JumpingScript : MonoBehaviour
 
 		void Start ()
 		{
+
 				charMove = GetComponent<CharacterMovementScript> ();
 				startJumpSpeed = (maxJumpSpeed / 1.5f);
 				anim = bitch.GetComponent<Animator> ();
@@ -34,99 +33,109 @@ public class JumpingScript : MonoBehaviour
 		void Update ()
 		{
 
-				
-					grounded = Physics2D.OverlapCircle (groundChecker.position, checkerRadius, bitMask);
-				
+				Debug.Log (jumpSpeed);
+
+				grounded = Physics2D.OverlapCircle (groundChecker.position, checkerRadius, bitMask);
+
 				anim.SetBool ("Ground", grounded);
 				anim.SetFloat ("vSpeed", rigidbody2D.velocity.y);
-	
+
 				if (grounded) {
+
 						doubleJumped = false;
-						
 				}
 
 				if (rigidbody2D.velocity.y < 0.0f) {
+
 						gameObject.layer = LayerMask.NameToLayer ("Player");
 				}
-				//If character is sprinting and has a velocity above 3.0
+
+				//If character is sprinting and has a velocity above 1.0
 				if (charMove.Sprinting () && Mathf.Abs (rigidbody2D.velocity.x) > 1.0f) {
 
-						// Jump if grounded and jump-button is released
-						if (grounded && isJumping) {
-								rigidbody2D.AddForce (new Vector2 (0, jumpSpeed));
-								isJumping = false;
-								anim.SetBool ("Ground", false);
-						}
-
 						// Double jump once in mid-air if jump-button is pressed
-						if (!doubleJumped && Input.GetButtonDown ("Jump") && !grounded) {
-								// Set vertical velocity to zero before double jump
-								Vector3 vel = rigidbody2D.velocity;
-								vel.y = 0;
-								rigidbody2D.velocity = vel;
-
-								rigidbody2D.AddForce (new Vector2 (0, startJumpSpeed));
-
-								// Double jump disabled until player grounded
-								if (!grounded && !doubleJumped) {
-										doubleJumped = true;
-								}
-						}
-
-						// Jump when space is released
-						if (!doubleJumped && Input.GetButtonUp ("Jump")) {
-								if(grounded)
-								{
-									isJumping = true;
-									gameObject.layer = LayerMask.NameToLayer ("JumpThroughPlayer");
-								}
-								
-
-								if (jumpSpeed > maxJumpSpeed) {
-										jumpSpeed = maxJumpSpeed;
-								}
-						}
-
-						// Jump speed is set to start value when space is pressed down
 						if (Input.GetButtonDown ("Jump")) {
-								jumpSpeed = startJumpSpeed;
+
+								if (!doubleJumped) {
+
+										if (!grounded) {
+
+												// Set vertical velocity to zero before double jump
+												Vector3 vel = rigidbody2D.velocity;
+												vel.y = 0;
+												rigidbody2D.velocity = vel;
+
+												rigidbody2D.AddForce (new Vector2 (0, startJumpSpeed));
+
+												// Double jump disabled until player grounded
+												if (!grounded && !doubleJumped) {
+
+														doubleJumped = true;
+												}
+										}
+										
+										if (grounded) {
+
+												rigidbody2D.AddForce (new Vector2 (0, jumpSpeed));
+												anim.SetBool ("Ground", false);
+
+												gameObject.layer = LayerMask.NameToLayer ("JumpThroughPlayer");
+										}
+
+										if (jumpSpeed > maxJumpSpeed) {
+						
+												jumpSpeed = maxJumpSpeed;
+										}
+								}
 						}
 
-						if (grounded && Input.GetButton ("Jump")) {
-								if (jumpSpeed <= maxJumpSpeed)
-										jumpSpeed += (int)(startJumpSpeed * Time.deltaTime);
+						if (Input.GetButton ("Run")) {
+
+								if (grounded) {
+
+										if (jumpSpeed <= maxJumpSpeed)
+												jumpSpeed += (int)(startJumpSpeed * Time.deltaTime);
+								}
 						}
-				} 
-					//If character is not currently sprinting - different conditions for jumping (no charge jump)
+				}
+
+				if (Input.GetButtonUp ("Jump") || Input.GetButtonUp ("Run")) {
+			
+						jumpSpeed = startJumpSpeed;
+				}
+		
+		
+		//If character is not currently sprinting - different conditions for jumping (no charge jump)
 					else if (!charMove.Sprinting ()) {
-						if (Input.GetButtonDown ("Jump") && grounded) {
-								isJumping = true;
-								gameObject.layer = LayerMask.NameToLayer ("JumpThroughPlayer");
-						}
-						if (isJumping && grounded) {
-								rigidbody2D.AddForce (new Vector2 (0, startJumpSpeed));
-								isJumping = false;
-								anim.SetBool ("Ground", false);
-						}
-						if (!doubleJumped && Input.GetButtonDown ("Jump") && !grounded) {
-								// Set vertical velocity to zero before double jump
-								Vector3 vel = rigidbody2D.velocity;
-								vel.y = 0;
-								rigidbody2D.velocity = vel;
-								gameObject.layer = LayerMask.NameToLayer("JumpThroughPlayer");
-				
-								rigidbody2D.AddForce (new Vector2 (0, startJumpSpeed));
-				
-								// Double jump disabled until player grounded
-								if (!grounded && !doubleJumped) {
+
+						if (Input.GetButtonDown ("Jump")) {
+
+								if (!doubleJumped && !grounded) {
+
+										// Set vertical velocity to zero before double jump
+										Vector3 vel = rigidbody2D.velocity;
+										vel.y = 0;
+										rigidbody2D.velocity = vel;
+
+										gameObject.layer = LayerMask.NameToLayer ("JumpThroughPlayer");
+
+										rigidbody2D.AddForce (new Vector2 (0, startJumpSpeed));
 										doubleJumped = true;
+								}
+
+								if (grounded) {
+					
+										rigidbody2D.AddForce (new Vector2 (0, startJumpSpeed));
+										anim.SetBool ("Ground", false);
+										gameObject.layer = LayerMask.NameToLayer ("JumpThroughPlayer");
 								}
 						}
 				}
 		}
-
+	
 		public bool Grounded ()
 		{
+
 				return grounded;
 		}
 }
