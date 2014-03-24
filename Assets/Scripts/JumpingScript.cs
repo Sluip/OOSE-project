@@ -98,11 +98,7 @@ public class JumpingScript : MonoBehaviour
 								}
 						}
 				}
-
-				if (Input.GetButtonUp ("Jump") || Input.GetButtonUp ("Run")) {
-			
-						jumpSpeed = startJumpSpeed;
-				}
+				
 		
 		
 		//If character is not currently sprinting - different conditions for jumping (no charge jump)
@@ -131,6 +127,14 @@ public class JumpingScript : MonoBehaviour
 								}
 						}
 				}
+
+				//Reset jump speed if sprint button released, player jumps or turns around
+				if (Input.GetButtonUp ("Jump") || Input.GetButtonUp ("Run") || charMove.flipped) {
+			
+						jumpSpeed = startJumpSpeed;
+						charMove.flipped = false;
+				}
+
 		}
 	
 		public bool Grounded ()
