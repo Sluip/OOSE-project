@@ -9,6 +9,7 @@ public class CharacterMovementScript : MonoBehaviour
 	private bool sprinting;
 	private float move;
 	Animator anim;
+	private bool isSprinting;
 
 	// Use this for initialization
 	void Start ()
@@ -39,7 +40,11 @@ public class CharacterMovementScript : MonoBehaviour
 
 	void Update ()
 	{
-		Debug.Log (rigidbody2D.velocity.x);
+		if(Mathf.Abs (rigidbody2D.velocity.x) > maxMovementSpeed)
+			isSprinting = true;
+		else
+			isSprinting = false;
+
 		if (Input.GetButton ("Run")) {
 			sprinting = true;
 		}
@@ -49,7 +54,7 @@ public class CharacterMovementScript : MonoBehaviour
 		float moveX = Input.GetAxis ("Horizontal");
 			
 		anim.SetFloat ("speed", Mathf.Abs (moveX));
-		anim.SetBool ("sprint", sprinting);
+		anim.SetBool ("sprint", isSprinting);
 	}
 
 	void Flip ()
