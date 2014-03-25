@@ -56,7 +56,6 @@ public class EnemyScript : MonoBehaviour {
 						else if (direction.x > 0 && !right)
 								Flip ();
 
-						float step = move * Time.deltaTime;
 						if (direction.x < 0) 
 								rigidbody2D.velocity = new Vector2 (move * -1, rigidbody2D.velocity.y);
 						else if (direction.x > 0)
@@ -68,16 +67,7 @@ public class EnemyScript : MonoBehaviour {
 
 
 
-						/*
-			float step = move * Time.deltaTime;
-
-			transform.position = Vector2.MoveTowards(transform.position, player.position, step);
-
-			if (transform.position.y != tempY)
-				transform.position = new Vector2(transform.position.x, tempY);
-		}
-
-		*///--------------------------------------//
+		
 				}
 
 	}
