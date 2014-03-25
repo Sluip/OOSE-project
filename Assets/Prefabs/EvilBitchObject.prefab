@@ -11,7 +11,7 @@ GameObject:
   m_Layer: 13
   m_Name: GroundChecker
   m_TagString: Untagged
-  m_Icon: {fileID: 1319202362, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -44,6 +44,7 @@ GameObject:
   - 61: {fileID: 6100000}
   - 61: {fileID: 6100002}
   - 114: {fileID: 11400000}
+  - 58: {fileID: 5800000}
   m_Layer: 13
   m_Name: EvilBitchObject
   m_TagString: Enemy
@@ -158,6 +159,17 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!58 &5800000
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Radius: .209999993
+  m_Center: {x: .100000001, y: -.409999996}
 --- !u!61 &6100000
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -167,8 +179,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .656109989, y: 1.19529283}
-  m_Center: {x: .112429142, y: -.0222702026}
+  m_Size: {x: .349999994, y: .25999999}
+  m_Center: {x: .100000001, y: -.419999987}
 --- !u!61 &6100002
 BoxCollider2D:
   m_ObjectHideFlags: 1
