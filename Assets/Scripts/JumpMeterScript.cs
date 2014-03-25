@@ -25,11 +25,12 @@ public class JumpMeterScript : MonoBehaviour
 		void Update ()
 		{
 				if (charMove.Sprinting () && Mathf.Abs (player.rigidbody2D.velocity.x) > 1.0f) {
-						if (jumpingScript.Grounded () && Input.GetButton ("Jump")) {
+
+						if (Input.GetButton ("Run") && jumpingScript.Grounded ()) {
 								increasing = true;
 						}
 
-						if (Input.GetButtonUp ("Jump")) {
+						if (Input.GetButtonUp ("Run") || !jumpingScript.Grounded ()) {
 								// Set jump meter scale on z-axis and gaugePower to 0
 								Vector3 temp = gameObject.transform.localScale;
 								temp.z = 0f;
@@ -48,13 +49,14 @@ public class JumpMeterScript : MonoBehaviour
 								Vector3 temp2 = gameObject.transform.localScale;
 								temp2.z = -gaugePower;
 								gameObject.transform.localScale = temp2;
-
 						}
 				}
+
 				if (!charMove.Sprinting () || Mathf.Abs (player.rigidbody2D.velocity.x) < 1.0f) {
 						Vector3 temp = gameObject.transform.localScale;
 						temp.z = 0f;
 						gameObject.transform.localScale = temp;
+
 						gaugePower = 0f;
 						increasing = false;
 				}

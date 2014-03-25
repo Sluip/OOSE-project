@@ -10,10 +10,12 @@ public class CharacterMovementScript : MonoBehaviour
 	private float move;
 	Animator anim;
 	private bool isSprinting;
+	public bool flipped;
 
 	// Use this for initialization
 	void Start ()
 	{	
+		flipped = false;
 		sprinting = false;
 		anim = bitch.GetComponent<Animator> ();
 	}
@@ -63,6 +65,7 @@ public class CharacterMovementScript : MonoBehaviour
 		Vector3 scale = transform.localScale;
 		scale.x *= -1;
 		transform.localScale = scale;
+		flipped = true;
 	}
 
 	public bool Sprinting ()
