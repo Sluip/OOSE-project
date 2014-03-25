@@ -56,9 +56,8 @@ public class JumpingScript : MonoBehaviour
 			// Double jump once in mid-air if jump-button is pressed
 			if (Input.GetButtonDown ("Jump")) {
 
-				if (!doubleJumped) {
+				if (!doubleJumped && !grounded) {
 
-					if (!grounded) {
 
 						// Set vertical velocity to zero before double jump
 						Vector3 vel = rigidbody2D.velocity;
@@ -66,11 +65,12 @@ public class JumpingScript : MonoBehaviour
 						rigidbody2D.velocity = vel;
 
 						rigidbody2D.AddForce (new Vector2 (0, startJumpSpeed));
+						gameObject.layer = LayerMask.NameToLayer ("JumpThroughPlayer");
 
 						// Double jump disabled until player grounded
 						doubleJumped = true;
 					}
-				}
+
 										
 				if (grounded) {
 
