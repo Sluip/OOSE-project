@@ -5,7 +5,6 @@ public class JumpMeterScript : MonoBehaviour
 {
 
 		private JumpingScript jumpingScript;
-		private CharacterMovementScript charMove;
 		private GameObject player;
 		private float gaugePower = 0f;
 		public bool increasing = false;
@@ -17,25 +16,25 @@ public class JumpMeterScript : MonoBehaviour
 
 				player = GameObject.FindGameObjectWithTag ("Player");
 				jumpingScript = player.GetComponent<JumpingScript> ();
-				charMove = player.GetComponent<CharacterMovementScript> ();
 		}
 	
 		// Update is called once per frame
 		void Update ()
 		{
-				if (charMove.Sprinting () && Mathf.Abs (player.rigidbody2D.velocity.x) > 1.0f) {
 
 //						if (Input.GetButton ("Run")) {
 //								increasing = true;
 //						}
 
-						if (Mathf.Abs(charMove.rigidbody2D.velocity.x) <= charMove.maxMovementSpeed) {
+						if (jumpingScript.jumpSpeed <= jumpingScript.startJumpSpeed) {
+
 								// Set jump meter scale on z-axis and gaugePower to 0
 								Vector3 temp = gameObject.transform.localScale;
 								temp.z = 0f;
 								gameObject.transform.localScale = temp;
 
 								gaugePower = 0f;
+
 								lastJumpSpeed = jumpingScript.startJumpSpeed;
 						}
 
@@ -53,15 +52,5 @@ public class JumpMeterScript : MonoBehaviour
 								lastJumpSpeed = jumpingScript.jumpSpeed;
 						}
 				}
-
-				if (!charMove.Sprinting () || Mathf.Abs (player.rigidbody2D.velocity.x) < 1.0f) {
-						Vector3 temp = gameObject.transform.localScale;
-						temp.z = 0f;
-						gameObject.transform.localScale = temp;
-
-						gaugePower = 0f;
-//						increasing = false;
-				}
-				
 		}
-}
+
