@@ -1906,8 +1906,8 @@ MonoBehaviour:
   jumpMeter: {fileID: 400000, guid: 48a88e0d060f5f849a75800f885a2f4b, type: 2}
   bitch: {fileID: 922912035}
   jumpSpeed: 500
+  startJumpSpeed: 0
   maxJumpSpeed: 1050
-  jumpSpeedMultiplier: 10
 --- !u!58 &1280068569
 CircleCollider2D:
   m_ObjectHideFlags: 0
