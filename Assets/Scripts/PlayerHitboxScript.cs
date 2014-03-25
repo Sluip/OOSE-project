@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class PlayerScript : MonoBehaviour {
+public class PlayerHitboxScript : MonoBehaviour {
 
 	public int damage = 1;
 	private bool isHitting = false;

@@ -2,20 +2,22 @@ using UnityEngine;
 using System.Collections;
 
 public class EnemyScript : MonoBehaviour {
-		
+	
 	public int HP = 10;
 	public Transform healthBar;
 	public Transform player;
-	public float maxDistance = 10f;
-	public float minDistance = 1.5f;
-	public float maxMovementSpeed = 10f;
+	public float maxDistance;
+	public float minDistance;
+	public float maxMovementSpeed;
 	public float move;
-	bool right = false;
+	bool right;
 	
 	// Use this for initialization
 	void Start () {
 
+	
 		move = 5f;
+		right = false;
 
 	}
 	
@@ -41,14 +43,33 @@ public class EnemyScript : MonoBehaviour {
 		}
 	
 
-		//------------------AI------------------//
+		//------------------OLD AI------------------//
 
 		float distance = Vector2.Distance (transform.position, player.position);
 
-		if(distance <= maxDistance && distance >= minDistance) {
+		if (distance <= maxDistance && distance >= minDistance) {
+						//Making a relativity vector between player and enemy
+						Vector2 direction = player.position - transform.position;
+						//Making the enemy able to face the player depending on where the player is
+						if (direction.x < 0 && right) 
+								Flip ();
+						else if (direction.x > 0 && !right)
+								Flip ();
 
+						float step = move * Time.deltaTime;
+						if (direction.x < 0) 
+								rigidbody2D.velocity = new Vector2 (move * -1, rigidbody2D.velocity.y);
+						else if (direction.x > 0)
+								rigidbody2D.velocity = new Vector2 (move, rigidbody2D.velocity.y);
+				}
+			if (distance >= maxDistance || distance <= minDistance){
+				rigidbody2D.velocity = new Vector2(0f,rigidbody2D.velocity.y);
+
+
+
+
+						/*
 			float step = move * Time.deltaTime;
-			float tempY = transform.position.y;
 
 			transform.position = Vector2.MoveTowards(transform.position, player.position, step);
 
@@ -59,8 +80,8 @@ public class EnemyScript : MonoBehaviour {
 
 			Debug.Log ("Out of Range");
 
-		//--------------------------------------//
-
+		*///--------------------------------------//
+				}
 
 	}
 
