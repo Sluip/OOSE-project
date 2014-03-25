@@ -10,7 +10,7 @@ public class CharacterMovementScript : MonoBehaviour
 	private float move;
 	Animator anim;
 	private bool isSprinting;
-	public bool flipped;
+	[HideInInspector] public bool flipped;
 
 	// Use this for initialization
 	void Start ()

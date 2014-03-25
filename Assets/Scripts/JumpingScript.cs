@@ -33,8 +33,6 @@ public class JumpingScript : MonoBehaviour
 	void Update ()
 	{
 
-		Debug.Log (jumpSpeed);
-
 		grounded = Physics2D.OverlapCircle (groundChecker.position, checkerRadius, bitMask);
 		
 		anim.SetBool ("Ground", grounded);
