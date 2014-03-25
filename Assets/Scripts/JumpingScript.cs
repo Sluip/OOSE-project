@@ -35,7 +35,7 @@ public class JumpingScript : MonoBehaviour
 		{
 
 				
-					grounded = Physics2D.OverlapCircle (groundChecker.position, checkerRadius, bitMask);
+				grounded = Physics2D.OverlapCircle (groundChecker.position, checkerRadius, bitMask);
 				
 				anim.SetBool ("Ground", grounded);
 				anim.SetFloat ("vSpeed", rigidbody2D.velocity.y);
@@ -75,10 +75,9 @@ public class JumpingScript : MonoBehaviour
 
 						// Jump when space is released
 						if (!doubleJumped && Input.GetButtonUp ("Jump")) {
-								if(grounded)
-								{
-									isJumping = true;
-									gameObject.layer = LayerMask.NameToLayer ("JumpThroughPlayer");
+								if (grounded) {
+										isJumping = true;
+										gameObject.layer = LayerMask.NameToLayer ("JumpThroughPlayer");
 								}
 								
 
@@ -113,7 +112,7 @@ public class JumpingScript : MonoBehaviour
 								Vector3 vel = rigidbody2D.velocity;
 								vel.y = 0;
 								rigidbody2D.velocity = vel;
-								gameObject.layer = LayerMask.NameToLayer("JumpThroughPlayer");
+								gameObject.layer = LayerMask.NameToLayer ("JumpThroughPlayer");
 				
 								rigidbody2D.AddForce (new Vector2 (0, startJumpSpeed));
 				
