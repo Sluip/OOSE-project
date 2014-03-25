@@ -55,9 +55,6 @@ public class EnemyScript : MonoBehaviour {
 			if (transform.position.y != tempY)
 				transform.position = new Vector2(transform.position.x, tempY);
 		}
-		else
-
-			Debug.Log ("Out of Range");
 
 		//--------------------------------------//
 
