@@ -6,14 +6,16 @@ public class EnemyScript : MonoBehaviour {
 	public int HP = 10;
 	public Transform healthBar;
 	public Transform player;
-	private float maxDistance = 10f;
+	public float maxDistance = 10f;
+	public float minDistance = 1.5f;
 	public float maxMovementSpeed = 10f;
-	public Vector2 move;
-
+	public float move;
+	bool right = false;
+	
 	// Use this for initialization
 	void Start () {
 
-		move = new Vector2 (1, 0);
+		move = 5f;
 
 	}
 	
@@ -43,14 +45,23 @@ public class EnemyScript : MonoBehaviour {
 
 		float distance = Vector2.Distance (transform.position, player.position);
 
-		if(distance <= maxDistance) {
+		if(distance <= maxDistance && distance >= minDistance) {
 
-			rigidbody2D.AddForce(distance * Time.deltaTime * move);
+			float step = move * Time.deltaTime;
+			float tempY = transform.position.y;
 
-			Debug.Log ("Within Range");
+			transform.position = Vector2.MoveTowards(transform.position, player.position, step);
+
+			if (transform.position.y != tempY)
+				transform.position = new Vector2(transform.position.x, tempY);
 		}
 		else
+
 			Debug.Log ("Out of Range");
+
+		//--------------------------------------//
+
+
 	}
 
 	public void Hurt(int damage)
@@ -62,5 +73,13 @@ public class EnemyScript : MonoBehaviour {
 		Vector3 temp = healthBar.localScale;
 		temp.z += 0.01f;
 		healthBar.localScale = temp;
+	}
+
+	void Flip ()
+	{
+		right = !right;
+		Vector3 scale = transform.localScale;
+		scale.x *= -1;
+		transform.localScale = scale;
 	}
 }
