@@ -8,7 +8,7 @@ public class JumpingScript : MonoBehaviour
 	private bool grounded;
 	public Transform groundChecker;
 	public Transform jumpMeter;
-	public Transform bitch;
+	public Transform player;
 	private float checkerRadius = 0.2f;
 	[HideInInspector] public float jumpSpeed;
 	[HideInInspector] public float startJumpSpeed;
@@ -25,7 +25,7 @@ public class JumpingScript : MonoBehaviour
 
 		charMove = GetComponent<CharacterMovementScript> ();
 		startJumpSpeed = (maxJumpSpeed / 1.5f);
-		anim = bitch.GetComponent<Animator> ();
+		anim = player.GetComponent<Animator> ();
 		jumpSpeed = startJumpSpeed;
 	}
 
@@ -35,7 +35,7 @@ public class JumpingScript : MonoBehaviour
 
 		grounded = Physics2D.OverlapCircle (groundChecker.position, checkerRadius, bitMask);
 		
-		anim.SetBool ("Ground", grounded);
+			anim.SetBool ("Ground", grounded);
 		anim.SetFloat ("vSpeed", rigidbody2D.velocity.y);
 
 		if (grounded) {
@@ -49,7 +49,7 @@ public class JumpingScript : MonoBehaviour
 		}
 
 		//If character is sprinting and has a velocity above 1.0
-		if (charMove.Sprinting () && Mathf.Abs (rigidbody2D.velocity.x) > 1.0f) {
+		if (charMove.Sprinting ()) {
 
 			// Double jump once in mid-air if jump-button is pressed
 			if (Input.GetButtonDown ("Jump")) {

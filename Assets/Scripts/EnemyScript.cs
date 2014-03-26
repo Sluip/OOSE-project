@@ -18,7 +18,7 @@ public class EnemyScript : MonoBehaviour
 		{
 
 	
-				move = 5f;
+				move = 3.5f;
 				right = false;
 
 		}
@@ -67,6 +67,7 @@ public class EnemyScript : MonoBehaviour
 						rigidbody2D.velocity = new Vector2 (0f, rigidbody2D.velocity.y);
 
 				}
+				
 
 				///--------------------------------------//
 		}
