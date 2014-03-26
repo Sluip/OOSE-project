@@ -23,7 +23,6 @@ public class CharacterMovementScript : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate ()
 	{		
-
 		if (!sprinting) {
 			move = Input.GetAxis ("Horizontal");
 			rigidbody2D.velocity = new Vector2 (move * maxMovementSpeed, rigidbody2D.velocity.y);
@@ -32,7 +31,6 @@ public class CharacterMovementScript : MonoBehaviour
 			rigidbody2D.velocity = new Vector2 (move * maxMovementSpeed * 1.5f, rigidbody2D.velocity.y);
 		}
 
-						
 		if (move > 0 && !right) {
 			Flip ();
 		} else if (move < 0 && right) {

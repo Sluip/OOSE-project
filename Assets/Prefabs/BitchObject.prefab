@@ -26,7 +26,7 @@ GameObject:
   - 212: {fileID: 21200000}
   - 95: {fileID: 9500000}
   m_Layer: 8
-  m_Name: Bitch
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -232,7 +232,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4c28bb886ed800240ae33771d5818e49, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 1
   m_ApplyRootMotion: 0
   m_AnimatePhysics: 0
   m_HasTransformHierarchy: 1
@@ -275,10 +275,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundChecker: {fileID: 400000}
   jumpMeter: {fileID: 400000, guid: 48a88e0d060f5f849a75800f885a2f4b, type: 2}
-  bitch: {fileID: 400002}
+  player: {fileID: 400002}
   jumpSpeed: 500
+  startJumpSpeed: 0
   maxJumpSpeed: 1050
-  jumpSpeedMultiplier: 10
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1

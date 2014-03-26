@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MenuScript : MonoBehaviour {
+public class MenuScript : MonoBehaviour 
+{
 
 	public Texture2D buttonTexture;
 	public Texture2D buttonTexture2;
