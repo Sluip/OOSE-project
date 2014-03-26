@@ -62,8 +62,10 @@ public class EnemyScript : MonoBehaviour
 								rigidbody2D.velocity = new Vector2 (move, rigidbody2D.velocity.y);
 				}
 
+
 				if (distance >= maxDistance || distance <= minDistance) {
 						rigidbody2D.velocity = new Vector2 (0f, rigidbody2D.velocity.y);
+
 				}
 
 				///--------------------------------------//
