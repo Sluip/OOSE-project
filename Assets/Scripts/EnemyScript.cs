@@ -15,8 +15,8 @@ public class EnemyScript : MonoBehaviour
 	
 		// Use this for initialization
 		void Start ()
-		{
-				move = 5f;
+		{	
+				move = 3.5f;
 				right = false;
 		}
 
@@ -58,6 +58,7 @@ public class EnemyScript : MonoBehaviour
 				if (HP <= 5) {
 						healthBar.transform.renderer.material.color = Color.yellow;
 				}
+				
 
 				// Change color of health bar to red
 				if (HP < 3) {

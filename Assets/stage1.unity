@@ -620,7 +620,7 @@ GameObject:
   m_Layer: 13
   m_Name: GroundChecker
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 1319202362, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -3068,6 +3068,11 @@ Prefab:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: dcd87a9ff09a9494f9262b141d2885d9, type: 2}
+    - target: {fileID: 100000, guid: 7031dd3ea98f805459f3108fc5b91d42, type: 2}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 1319202362, guid: 0000000000000000d000000000000000,
+        type: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7031dd3ea98f805459f3108fc5b91d42, type: 2}
   m_RootGameObject: {fileID: 727964479}

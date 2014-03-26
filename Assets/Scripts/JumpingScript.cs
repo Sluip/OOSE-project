@@ -50,11 +50,10 @@ public class JumpingScript : MonoBehaviour
 			
 			gameObject.layer = LayerMask.NameToLayer ("Player");
 		}
-
+		
 		if (sprintJumped) {
 
 			if (!doubleJumped && !grounded) {
-			
 			
 				// Set vertical velocity to zero before double jump
 				Vector3 vel = rigidbody2D.velocity;
