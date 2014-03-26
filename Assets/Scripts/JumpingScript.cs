@@ -122,8 +122,6 @@ public class JumpingScript : MonoBehaviour
 			jumpSpeed = startJumpSpeed;
 			charMove.flipped = false;
 		}
-
-		Debug.Log (jumpSpeed);
 	}
 	
 	public bool Grounded ()
