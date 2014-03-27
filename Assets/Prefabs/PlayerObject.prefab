@@ -361,6 +361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 400010}
+  isDead: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
