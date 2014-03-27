@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MenuScript : MonoBehaviour {
+public class MenuScript : MonoBehaviour 
+{
 
 	public Texture2D buttonTexture;
 	public Texture2D buttonTexture2;
@@ -9,18 +10,23 @@ public class MenuScript : MonoBehaviour {
  	private bool isPaused;
 	public int buttonWidth;
 	public int buttonHeight;
+	public Transform player;
+	private HealthScript healthScript;
 
 	// Use this for initialization
 	void Start () {
 
 		isPaused = false;
+		healthScript = player.GetComponent<HealthScript> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if(Input.GetButtonDown ("Escape"))
+		if(Input.GetButtonDown ("Escape") || healthScript.something)
 		{
+			healthScript.something = false;
+
 			if(!isPaused)
 			{
 				Time.timeScale = 0f;
@@ -39,16 +45,23 @@ public class MenuScript : MonoBehaviour {
 	{
 		if(isPaused) {
 
+			if(player != null){
+			//Resume button
 			if(GUI.Button (new Rect ((Screen.width/2 - buttonWidth/2), (Screen.height/2 - buttonHeight/2) - 100, buttonWidth, buttonHeight), buttonTexture)) {
 
 				Time.timeScale = 1f;
 				isPaused = !isPaused;
 			}
+			}
+
+			//Restart button
 			if(GUI.Button (new Rect ((Screen.width/2 - buttonWidth/2), (Screen.height/2 - buttonHeight/2), buttonWidth, buttonHeight), buttonTexture2)) {
 
 				Application.LoadLevel(Application.loadedLevel);
 				Time.timeScale = 1f;
 			}
+
+			//Quit Game button
 			if(GUI.Button (new Rect ((Screen.width/2 - buttonWidth/2), (Screen.height/2 - buttonHeight/2) + 100, buttonWidth, buttonHeight), buttonTexture3)) {
 
 				Application.Quit();
