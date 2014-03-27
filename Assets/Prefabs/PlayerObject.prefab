@@ -337,6 +337,7 @@ MonoBehaviour:
   jumpSpeed: 500
   startJumpSpeed: 0
   maxJumpSpeed: 1050
+  speedLimiter: 21
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
