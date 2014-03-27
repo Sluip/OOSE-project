@@ -4,7 +4,7 @@ using System.Collections;
 public class CharacterMovementScript : MonoBehaviour
 {
 	public float maxMovementSpeed = 10.0f;
-	bool right = true;
+	private bool right;
 	public Transform bitch;
 	private bool sprinting;
 	private float move;
@@ -15,6 +15,7 @@ public class CharacterMovementScript : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{	
+		right = true;
 		flipped = false;
 		sprinting = false;
 		anim = bitch.GetComponent<Animator> ();
@@ -71,6 +72,10 @@ public class CharacterMovementScript : MonoBehaviour
 	public bool Sprinting ()
 	{
 		return sprinting;
+	}
+	public bool Right()
+	{
+			return right;
 	}
 
 }
