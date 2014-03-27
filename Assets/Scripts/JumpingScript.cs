@@ -130,6 +130,13 @@ public class JumpingScript : MonoBehaviour
 			
 			running = true;
 		}
+		else if (!charMove.Sprinting ()) {
+			
+			if (Input.GetButtonDown ("Jump")) {
+				
+				jumped = true;
+			}
+		}
 		if (charMove.Right ()) {
 			rectangleSize.x = groundChecker.position.x + 2.0f;
 			rectangleSize.y = groundChecker.position.y + 0.2f;
@@ -139,13 +146,7 @@ public class JumpingScript : MonoBehaviour
 			rectangleSize.y = groundChecker.position.y + 0.2f;
 		}
 		//Not sprinting
-		else if (!charMove.Sprinting ()) {
-			
-			if (Input.GetButtonDown ("Jump")) {
-				
-				jumped = true;
-			}
-		}
+
 		
 		//Reset jump speed if sprint button released, turns around or has a velocity.x less or equal to 7
 		if (Input.GetButtonUp ("Run") || charMove.flipped || Mathf.Abs(rigidbody2D.velocity.x) <= 7f) {
