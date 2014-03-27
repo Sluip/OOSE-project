@@ -9,7 +9,6 @@ public class JumpingScript : MonoBehaviour
 	public Transform groundChecker;
 	public Transform jumpMeter;
 	public Transform player;
-	private float checkerRadius = 0.2f;
 	[HideInInspector] 
 	public float jumpSpeed;
 	[HideInInspector] 
@@ -37,7 +36,6 @@ public class JumpingScript : MonoBehaviour
 
 	void FixedUpdate()
 	{
-				//grounded = Physics2D.OverlapCircle (groundChecker.position, checkerRadius, bitMask);
 				grounded = Physics2D.OverlapArea (groundChecker.position, rectangleSize, bitMask);
 
 				if (grounded) {
