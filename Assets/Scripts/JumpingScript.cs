@@ -18,7 +18,7 @@ public class JumpingScript : MonoBehaviour
 	private bool doubleJumped = false;
 	private bool jumpThroughPlayer;
 	private float timer;
-	private CharacterMovementScript charMove;
+	private MovementScript charMove;
 	private int bitMask = 1 << 9 | 1 << 10;
 	private Animator anim;
 	private bool sprintJumped;
@@ -28,7 +28,7 @@ public class JumpingScript : MonoBehaviour
 	void Start ()
 	{
 		
-		charMove = GetComponent<CharacterMovementScript> ();
+		charMove = GetComponent<MovementScript> ();
 		startJumpSpeed = (maxJumpSpeed / 1.5f);
 		anim = player.GetComponent<Animator> ();
 		jumpSpeed = startJumpSpeed;

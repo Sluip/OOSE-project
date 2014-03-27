@@ -11,17 +11,27 @@ public class EnemyScript : MonoBehaviour
 		public float minDistance;
 		public float maxMovementSpeed;
 		public float move;
-		bool right;
+		private bool right;
+		private float damageCooldown;
+		public float hitRate = 1f;
+		private bool canAttack = false;
+		private HealthScript healthScript;
+		public int damage = 1;
 	
 		// Use this for initialization
 		void Start ()
 		{	
 				move = 3.5f;
 				right = false;
+				damageCooldown = 0f;
+				healthScript = player.GetComponent<HealthScript> ();
 		}
 
 		void FixedUpdate ()
 		{
+
+		if(player != null){
+
 				float distance = Vector2.Distance (transform.position, player.position);
 		
 				if (distance <= maxDistance && distance >= minDistance) {
@@ -44,6 +54,7 @@ public class EnemyScript : MonoBehaviour
 						rigidbody2D.velocity = new Vector2 (0f, rigidbody2D.velocity.y);
 			
 				}
+			}
 		}
 	
 		// Update is called once per frame
@@ -64,12 +75,21 @@ public class EnemyScript : MonoBehaviour
 				if (HP < 3) {
 						healthBar.transform.renderer.material.color = Color.red;
 				}
+
+				if (damageCooldown > 0) {
+					damageCooldown -= Time.deltaTime;
+				}
+
+				if(canAttack) {
+			canAttack = false;
+					damageCooldown = hitRate;
+					healthScript.Hit (damage);
+				}
 		}
 
 		public void Hurt (int damage)
 		{
 				HP -= damage;
-				Debug.Log (HP);
 
 				// Scale health bar down
 				Vector3 temp = healthBar.localScale;
@@ -84,4 +104,14 @@ public class EnemyScript : MonoBehaviour
 				scale.x *= -1;
 				transform.localScale = scale;
 		}
+
+		void OnTriggerStay2D(Collider2D other)
+		{
+			if(other.gameObject.tag == "PlayerHitbox")
+			{
+				if(damageCooldown <= 0f)
+					canAttack = true;
+			}
+			
+	}
 }

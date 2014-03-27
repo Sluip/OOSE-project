@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class CharacterMovementScript : MonoBehaviour
+public class MovementScript : MonoBehaviour
 {
 	public float maxMovementSpeed = 10.0f;
 	bool right = true;
@@ -23,9 +23,12 @@ public class CharacterMovementScript : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate ()
 	{		
+		//Movement when running
 		if (!sprinting) {
 			move = Input.GetAxis ("Horizontal");
 			rigidbody2D.velocity = new Vector2 (move * maxMovementSpeed, rigidbody2D.velocity.y);
+		
+		//Movement when sprinting
 		} else if (sprinting) {
 			move = Input.GetAxis ("Horizontal");
 			rigidbody2D.velocity = new Vector2 (move * maxMovementSpeed * 1.5f, rigidbody2D.velocity.y);
@@ -57,6 +60,7 @@ public class CharacterMovementScript : MonoBehaviour
 		anim.SetBool ("sprint", isSprinting);
 	}
 
+	//Inverse character scale on x-axis
 	void Flip ()
 	{
 		right = !right;
