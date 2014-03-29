@@ -147,7 +147,7 @@ public class JumpingScript : MonoBehaviour
 			}
 			
 			running = false;
-			}
+			} 
 		
 				//Reset jump speed if sprint button released, turns around or has a velocity.x less or equal to 7
 				if (Input.GetButtonUp ("Run") || charMove.flipped || Mathf.Abs (rigidbody2D.velocity.x) <= 7f) {

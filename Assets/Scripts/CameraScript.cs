@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class CameraScript : MonoBehaviour {
-	public float moveSpeed = 0.20f;
+	public float moveSpeed;
 	private Vector3 v = Vector3.zero;
 	public Transform player;
 	private Vector3 endpoint;
