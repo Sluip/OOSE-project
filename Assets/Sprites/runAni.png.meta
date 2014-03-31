@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9a2ccb9d2003f9342b0804bb12f027da
+guid: 9fe62fa675469cd4f9619c5e61a1e7df
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -45,7 +45,7 @@ TextureImporter:
     compressionQuality: 50
   spriteSheet:
     sprites:
-    - name: IdleSprite_0
+    - name: runAni_0
       rect:
         serializedVersion: 2
         x: 0
@@ -54,7 +54,7 @@ TextureImporter:
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: IdleSprite_1
+    - name: runAni_1
       rect:
         serializedVersion: 2
         x: 400
@@ -63,7 +63,7 @@ TextureImporter:
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: IdleSprite_2
+    - name: runAni_2
       rect:
         serializedVersion: 2
         x: 800
@@ -72,7 +72,7 @@ TextureImporter:
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: IdleSprite_3
+    - name: runAni_3
       rect:
         serializedVersion: 2
         x: 1200
@@ -81,16 +81,7 @@ TextureImporter:
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: IdleSprite_4
-      rect:
-        serializedVersion: 2
-        x: 1600
-        y: 1648
-        width: 400
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: IdleSprite_5
+    - name: runAni_4
       rect:
         serializedVersion: 2
         x: 0
@@ -99,11 +90,65 @@ TextureImporter:
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: IdleSprite_6
+    - name: runAni_5
       rect:
         serializedVersion: 2
         x: 400
         y: 1248
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: runAni_6
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1248
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: runAni_7
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1248
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: runAni_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 848
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: runAni_9
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 848
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: runAni_10
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 848
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: runAni_11
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 848
         width: 400
         height: 400
       alignment: 0
