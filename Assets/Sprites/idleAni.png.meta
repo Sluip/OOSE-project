@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f30ef8723456f264f83e460bc1e466d3
+guid: 7c677253ee696d54f9e93253bcf626db
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -45,7 +45,7 @@ TextureImporter:
     compressionQuality: 50
   spriteSheet:
     sprites:
-    - name: RunSprite_0
+    - name: idleAni_0
       rect:
         serializedVersion: 2
         x: 0
@@ -54,7 +54,7 @@ TextureImporter:
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: RunSprite_1
+    - name: idleAni_1
       rect:
         serializedVersion: 2
         x: 400
@@ -63,7 +63,7 @@ TextureImporter:
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: RunSprite_2
+    - name: idleAni_2
       rect:
         serializedVersion: 2
         x: 800
@@ -72,7 +72,7 @@ TextureImporter:
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: RunSprite_3
+    - name: idleAni_3
       rect:
         serializedVersion: 2
         x: 1200
@@ -81,16 +81,7 @@ TextureImporter:
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: RunSprite_4
-      rect:
-        serializedVersion: 2
-        x: 1600
-        y: 1648
-        width: 400
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: RunSprite_5
+    - name: idleAni_4
       rect:
         serializedVersion: 2
         x: 0
@@ -99,7 +90,7 @@ TextureImporter:
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: RunSprite_6
+    - name: idleAni_5
       rect:
         serializedVersion: 2
         x: 400
@@ -108,7 +99,7 @@ TextureImporter:
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: RunSprite_7
+    - name: idleAni_6
       rect:
         serializedVersion: 2
         x: 800
@@ -117,7 +108,7 @@ TextureImporter:
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: RunSprite_8
+    - name: idleAni_7
       rect:
         serializedVersion: 2
         x: 1200
@@ -126,16 +117,7 @@ TextureImporter:
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: RunSprite_9
-      rect:
-        serializedVersion: 2
-        x: 1600
-        y: 1248
-        width: 400
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: RunSprite_10
+    - name: idleAni_8
       rect:
         serializedVersion: 2
         x: 0
@@ -144,10 +126,28 @@ TextureImporter:
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: RunSprite_11
+    - name: idleAni_9
       rect:
         serializedVersion: 2
         x: 400
+        y: 848
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: idleAni_10
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 848
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: idleAni_11
+      rect:
+        serializedVersion: 2
+        x: 1200
         y: 848
         width: 400
         height: 400

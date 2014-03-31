@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5eea6dc1c646f594d8f4c7829acbc635
+guid: d75d935fdecb81047b0a7f767b9a5843
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -23,7 +23,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: 1
+    filterMode: -1
     aniso: 1
     mipBias: -1
     wrapMode: 1
@@ -45,7 +45,7 @@ TextureImporter:
     compressionQuality: 50
   spriteSheet:
     sprites:
-    - name: JumpSprite_0
+    - name: jumpAni_0
       rect:
         serializedVersion: 2
         x: 0
@@ -54,7 +54,7 @@ TextureImporter:
         height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: JumpSprite_1
+    - name: jumpAni_1
       rect:
         serializedVersion: 2
         x: 400
@@ -63,7 +63,7 @@ TextureImporter:
         height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: JumpSprite_2
+    - name: jumpAni_2
       rect:
         serializedVersion: 2
         x: 800
@@ -72,7 +72,7 @@ TextureImporter:
         height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: JumpSprite_3
+    - name: jumpAni_3
       rect:
         serializedVersion: 2
         x: 1200
@@ -81,16 +81,7 @@ TextureImporter:
         height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: JumpSprite_4
-      rect:
-        serializedVersion: 2
-        x: 1600
-        y: 1548
-        width: 400
-        height: 500
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: JumpSprite_5
+    - name: jumpAni_4
       rect:
         serializedVersion: 2
         x: 0
@@ -99,7 +90,7 @@ TextureImporter:
         height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: JumpSprite_6
+    - name: jumpAni_5
       rect:
         serializedVersion: 2
         x: 400
@@ -108,7 +99,7 @@ TextureImporter:
         height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: JumpSprite_7
+    - name: jumpAni_6
       rect:
         serializedVersion: 2
         x: 800
@@ -117,7 +108,7 @@ TextureImporter:
         height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: JumpSprite_8
+    - name: jumpAni_7
       rect:
         serializedVersion: 2
         x: 1200
@@ -126,16 +117,7 @@ TextureImporter:
         height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: JumpSprite_9
-      rect:
-        serializedVersion: 2
-        x: 1600
-        y: 1048
-        width: 400
-        height: 500
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: JumpSprite_10
+    - name: jumpAni_8
       rect:
         serializedVersion: 2
         x: 0
@@ -144,10 +126,28 @@ TextureImporter:
         height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: JumpSprite_11
+    - name: jumpAni_9
       rect:
         serializedVersion: 2
         x: 400
+        y: 548
+        width: 400
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: jumpAni_10
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 548
+        width: 400
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: jumpAni_11
+      rect:
+        serializedVersion: 2
+        x: 1200
         y: 548
         width: 400
         height: 500
