@@ -4,19 +4,24 @@ using System.Collections;
 public class EnemyScript : MonoBehaviour
 {
 	
-		public int HP = 10;
+		public int HP;
 		public Transform healthBar;
 		public Transform player;
-		public float maxDistance;
+		public float meleeDistance;
 		public float minDistance;
 		public float maxMovementSpeed;
+		public float shootingDistance;
+		public GameObject bullet;
 		public float move;
 		private bool right;
 		private float damageCooldown;
-		public float hitRate = 1f;
+		private float shootingCooldown;
+		public float hitRate;
 		private bool canAttack = false;
 		private HealthScript healthScript;
-		public int damage = 1;
+		public int damage;
+		public int shootingDamage;
+		
 	
 		// Use this for initialization
 		void Start ()
@@ -33,8 +38,15 @@ public class EnemyScript : MonoBehaviour
 		if(player != null){
 
 				float distance = Vector2.Distance (transform.position, player.position);
+
+				if (distance <= shootingDistance && distance >= meleeDistance){
+					if (shootingCooldown <= 0){
+						Shoot();
+					}
+				}
+
 		
-				if (distance <= maxDistance && distance >= minDistance) {
+				else if (distance <= meleeDistance && distance >= minDistance) {
 						//Making a relativity vector between player and enemy
 						Vector2 direction = player.position - transform.position;
 						//Making the enemy able to face the player depending on where the player is
@@ -50,7 +62,7 @@ public class EnemyScript : MonoBehaviour
 				}
 		
 		
-				if (distance >= maxDistance || distance <= minDistance) {
+				if (distance >= meleeDistance || distance <= minDistance) {
 						rigidbody2D.velocity = new Vector2 (0f, rigidbody2D.velocity.y);
 			
 				}
@@ -60,6 +72,7 @@ public class EnemyScript : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
+
 				// Death
 				if (HP <= 0) {
 						Destroy (gameObject);
@@ -78,6 +91,9 @@ public class EnemyScript : MonoBehaviour
 
 				if (damageCooldown > 0) {
 					damageCooldown -= Time.deltaTime;
+				}
+				if (shootingCooldown > 0) {
+					shootingCooldown -= Time.deltaTime;
 				}
 
 				if(canAttack) {
@@ -112,6 +128,21 @@ public class EnemyScript : MonoBehaviour
 				if(damageCooldown <= 0f)
 					canAttack = true;
 			}
+
 			
+	}
+		void Shoot(){
+		GameObject Bullet;
+				shootingCooldown = hitRate;
+		Bullet = Instantiate(bullet, transform.position, transform.rotation) as GameObject;
+		Vector3 fwd = transform.forward;
+		Debug.Log (fwd);
+		//Bullet.rigidbody2D.velocity = new Vector2(fwd * 10f,0f);
+
+	
+				
+			}
+	public bool Right(){
+		return right;
 	}
 }
