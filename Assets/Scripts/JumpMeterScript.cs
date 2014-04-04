@@ -42,7 +42,7 @@ public class JumpMeterScript : MonoBehaviour
 						if (jumpingScript.jumpSpeed > lastJumpSpeed) {
 
 								// Increase gaugePower over the duration of 1 second
-								gaugePower += Time.deltaTime * 0.05f;
+								gaugePower += Time.deltaTime * 0.02f;
 
 								// Set jump meter scale on z-axis equal to gaugePower negative
 								Vector3 temp2 = gameObject.transform.localScale;

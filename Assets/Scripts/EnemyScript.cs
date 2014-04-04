@@ -136,7 +136,6 @@ public class EnemyScript : MonoBehaviour
 				shootingCooldown = hitRate;
 		Bullet = Instantiate(bullet, transform.position, transform.rotation) as GameObject;
 		Vector3 fwd = transform.forward;
-		Debug.Log (fwd);
 		//Bullet.rigidbody2D.velocity = new Vector2(fwd * 10f,0f);
 
 	
