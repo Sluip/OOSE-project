@@ -97,7 +97,7 @@ public class EnemyScript : MonoBehaviour
 				}
 
 				if(canAttack) {
-			canAttack = false;
+					canAttack = false;
 					damageCooldown = hitRate;
 					healthScript.Hit (damage);
 				}
@@ -123,7 +123,7 @@ public class EnemyScript : MonoBehaviour
 
 		void OnTriggerStay2D(Collider2D other)
 		{
-			if(other.gameObject.tag == "PlayerHitbox")
+			if(other.gameObject.tag ==  "PlayerHitbox")
 			{
 				if(damageCooldown <= 0f)
 					canAttack = true;

@@ -5,7 +5,7 @@ public class HealthScript : MonoBehaviour {
 
 	private float HP = 10f;
 	public Transform healthBar;
-	public bool something;
+	[HideInInspector] public bool something;
 
 	// Use this for initialization
 	void Start () {

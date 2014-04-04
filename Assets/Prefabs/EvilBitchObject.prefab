@@ -41,8 +41,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 400004}
   - 50: {fileID: 5000000}
-  - 61: {fileID: 6100000}
   - 61: {fileID: 6100002}
+  - 61: {fileID: 6100000}
   - 114: {fileID: 11400000}
   - 58: {fileID: 5800000}
   m_Layer: 13
@@ -112,7 +112,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: -.5, y: -.5, z: .5, w: .5}
-  m_LocalPosition: {x: -.0124669075, y: 1.83215427, z: .0378417969}
+  m_LocalPosition: {x: .143836498, y: .95685631, z: .0378417969}
   m_LocalScale: {x: .00999999978, y: 1, z: -.100000001}
   m_Children: []
   m_Father: {fileID: 400004}
@@ -190,8 +190,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: 1.13999999, y: 1.42999995}
-  m_Center: {x: .150000006, y: -.0900000036}
+  m_Size: {x: .839999974, y: 1.42999995}
+  m_Center: {x: .180000007, y: -.0900000036}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 2
