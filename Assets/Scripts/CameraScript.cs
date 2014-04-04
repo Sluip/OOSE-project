@@ -10,6 +10,12 @@ public class CameraScript : MonoBehaviour {
 	private MovementScript charMove;
 	private Vector3 delta;
 	// Use this for initialization
+
+	void Awake () 
+	{
+		//camera.orthographicSize = ((float)((Screen.height / 2f) / 100f));
+	}
+
 	void Start () {
 	
 	charMove = player.GetComponent<MovementScript>();
@@ -18,8 +24,9 @@ public class CameraScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (player) {
 			
+		if (player) {
+
 			Vector3 point = camera.WorldToViewportPoint (player.position);
 			if(charMove.Right()){
 				delta = player.position - camera.ViewportToWorldPoint (new Vector3 (0.3f, 0.5f, point.z));

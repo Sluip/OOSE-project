@@ -25,8 +25,7 @@ public class HealthScript : MonoBehaviour {
 	public void Hit (int damage)
 	{
 		HP -= damage;
-		Debug.Log (HP);
-		
+
 		// Scale health bar down
 		Vector3 temp = healthBar.localScale;
 		temp.z += 0.01f;

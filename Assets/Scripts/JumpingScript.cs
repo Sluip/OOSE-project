@@ -152,7 +152,6 @@ public class JumpingScript : MonoBehaviour
 
 				} 
 			if (Input.GetButtonDown ("Jump") && Input.GetKey(KeyCode.S)) {
-						Debug.Log ("OK");
 						gameObject.layer = LayerMask.NameToLayer ("JumpThroughPlayer");
 						rigidbody2D.AddForce (new Vector2 (0, startJumpSpeed/2));
 				}

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9fe62fa675469cd4f9619c5e61a1e7df
+guid: 7c677253ee696d54f9e93253bcf626db
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -21,9 +21,9 @@ TextureImporter:
   generateCubemap: 0
   seamlessCubemap: 0
   textureFormat: -1
-  maxTextureSize: 2048
+  maxTextureSize: 512
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: 1
     mipBias: -1
     wrapMode: 1
@@ -35,7 +35,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
-  spritePixelsToUnits: 135
+  spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings:
@@ -45,112 +45,112 @@ TextureImporter:
     compressionQuality: 50
   spriteSheet:
     sprites:
-    - name: runAni_0
+    - name: idleAni_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1648
-        width: 400
-        height: 400
+        y: 384
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: runAni_1
+    - name: idleAni_1
       rect:
         serializedVersion: 2
-        x: 400
-        y: 1648
-        width: 400
-        height: 400
+        x: 128
+        y: 384
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: runAni_2
+    - name: idleAni_2
       rect:
         serializedVersion: 2
-        x: 800
-        y: 1648
-        width: 400
-        height: 400
+        x: 256
+        y: 384
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: runAni_3
+    - name: idleAni_3
       rect:
         serializedVersion: 2
-        x: 1200
-        y: 1648
-        width: 400
-        height: 400
+        x: 384
+        y: 384
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: runAni_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1248
-        width: 400
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: runAni_5
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 1248
-        width: 400
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: runAni_6
-      rect:
-        serializedVersion: 2
-        x: 800
-        y: 1248
-        width: 400
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: runAni_7
-      rect:
-        serializedVersion: 2
-        x: 1200
-        y: 1248
-        width: 400
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: runAni_8
+    - name: idleAni_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 848
-        width: 400
-        height: 400
+        y: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: runAni_9
+    - name: idleAni_5
       rect:
         serializedVersion: 2
-        x: 400
-        y: 848
-        width: 400
-        height: 400
+        x: 128
+        y: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: runAni_10
+    - name: idleAni_6
       rect:
         serializedVersion: 2
-        x: 800
-        y: 848
-        width: 400
-        height: 400
+        x: 256
+        y: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: runAni_11
+    - name: idleAni_7
       rect:
         serializedVersion: 2
-        x: 1200
-        y: 848
-        width: 400
-        height: 400
+        x: 384
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: idleAni_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: idleAni_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: idleAni_10
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: idleAni_11
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
   spritePackingTag: 

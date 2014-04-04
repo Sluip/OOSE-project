@@ -76,7 +76,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .00360202789, y: -1.85760951, z: .0378417969}
+  m_LocalPosition: {x: .00360202789, y: -1.2590512, z: .0378417969}
   m_LocalScale: {x: 1.02370858, y: 1.02370858, z: 1}
   m_Children: []
   m_Father: {fileID: 400002}
@@ -87,7 +87,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -.200000003, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400000}
@@ -99,7 +99,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.52910137, y: -.424612522, z: -.5}
+  m_LocalPosition: {x: 7.52910137, y: -1.41999042, z: -.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -168,8 +168,8 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Radius: .469999999
-  m_Center: {x: 0, y: -1.46000004}
+  m_Radius: .270000011
+  m_Center: {x: .209999993, y: -.670000017}
 --- !u!61 &6100000
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -179,8 +179,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .689999998, y: .639999986}
-  m_Center: {x: 0, y: -1.49000001}
+  m_Size: {x: .419999987, y: .330000013}
+  m_Center: {x: .209999993, y: -.689999998}
 --- !u!61 &6100002
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -190,8 +190,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: 2.6400001, y: 3.25999999}
-  m_Center: {x: 0, y: 0}
+  m_Size: {x: 1.13999999, y: 1.42999995}
+  m_Center: {x: .150000006, y: -.0900000036}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 2
@@ -238,7 +238,7 @@ SpriteRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: 342421d755b7df348919dc98582ca8b6, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
