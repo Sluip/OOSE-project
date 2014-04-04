@@ -220,12 +220,15 @@ MonoBehaviour:
   HP: 10
   healthBar: {fileID: 400006}
   player: {fileID: 0}
-  maxDistance: 10
+  meleeDistance: 5
   minDistance: 1
   maxMovementSpeed: 10
+  shootingDistance: 15
+  bullet: {fileID: 100000, guid: 02805d429db41b342b050875a2a5802c, type: 2}
   move: 0
   hitRate: 1
   damage: 1
+  shootingDamage: 2
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
