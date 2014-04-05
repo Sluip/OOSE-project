@@ -14,7 +14,7 @@ PlayerSettings:
   productName: OOSE Game
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
-  defaultScreenWidth: 1024
+  defaultScreenWidth: 1366
   defaultScreenHeight: 768
   defaultScreenWidthWeb: 960
   defaultScreenHeightWeb: 600
@@ -68,14 +68,12 @@ PlayerSettings:
     width: 0
     height: 0
   m_SupportedAspectRatios:
-    4:3: 1
-    5:4: 1
-    16:10: 1
+    4:3: 0
+    5:4: 0
+    16:10: 0
     16:9: 1
-    Others: 1
+    Others: 0
   iPhoneBundleIdentifier: com.Company.ProductName
-  metroEnableIndependentInputSource: 0
-  metroEnableLowLatencyPresentationAPI: 0
   productGUID: efd4556935a1f8d4fbab9aa7f8db8955
   iPhoneBundleVersion: 1.0
   AndroidBundleVersionCode: 1
@@ -174,7 +172,6 @@ PlayerSettings:
   metroSplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
   metroSplashScreenUseBackgroundColor: 0
   metroCapabilities: {}
-  metroUnprocessedPlugins: []
   metroCompilationOverrides: 1
   blackberryDeviceAddress: 
   blackberryDevicePassword: 
