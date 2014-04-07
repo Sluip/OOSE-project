@@ -19,6 +19,7 @@ public class JumpingScript : MonoBehaviour
 		public float speedLimiter;
 		private bool doubleJumped = false;
 		private bool jumpThroughPlayer;
+		public float chargeTime;
 		private float timer;
 		private MovementScript charMove;
 		private int bitMask = 1 << 9 | 1 << 10;
@@ -31,7 +32,7 @@ public class JumpingScript : MonoBehaviour
 		void Start ()
 		{
 				charMove = GetComponent<MovementScript> ();
-				startJumpSpeed = (maxJumpSpeed / 1.5f);
+				startJumpSpeed = (maxJumpSpeed / 1.3f);
 				anim = player.GetComponent<Animator> ();
 				jumpSpeed = startJumpSpeed;
 		}
@@ -117,6 +118,10 @@ public class JumpingScript : MonoBehaviour
 			
 						jumped = false;
 				}
+		if (Input.GetButtonDown ("Jump") && Input.GetKey(KeyCode.S)) {
+			gameObject.layer = LayerMask.NameToLayer ("JumpThroughPlayer");
+			rigidbody2D.AddForce (new Vector2 (0, startJumpSpeed/1.5f));
+		}
 		}
 	
 		// Update is called once per frame
@@ -145,22 +150,19 @@ public class JumpingScript : MonoBehaviour
 				if (running) {
 			
 						if (jumpSpeed <= maxJumpSpeed) {
-								jumpSpeed += (int)(startJumpSpeed * Time.deltaTime * 0.2f);
+								jumpSpeed += (int)(chargeTime * Time.deltaTime * 0.2f);
 						}
 			
 						running = false;
 
 				} 
-			if (Input.GetButtonDown ("Jump") && Input.GetKey(KeyCode.S)) {
-						gameObject.layer = LayerMask.NameToLayer ("JumpThroughPlayer");
-						rigidbody2D.AddForce (new Vector2 (0, startJumpSpeed/2));
-				}
+
 			
 		
 
 		
-				//Reset jump speed if sprint button released, turns around or has a velocity.x less or equal to 7
-				if (Input.GetButtonUp ("Run") || charMove.flipped || Mathf.Abs (rigidbody2D.velocity.x) <= 7f) {
+				//Reset jump speed if sprint button released, turns around or has a velocity.x less or equal to 6
+				if (Input.GetButtonUp ("Run") || charMove.flipped || Mathf.Abs (rigidbody2D.velocity.x) <= 6f) {
 			
 						jumpSpeed = startJumpSpeed;
 						charMove.flipped = false;
