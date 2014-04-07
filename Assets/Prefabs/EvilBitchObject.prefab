@@ -223,8 +223,8 @@ MonoBehaviour:
   meleeDistance: 5
   minDistance: 1
   maxMovementSpeed: 10
-  shootingDistance: 15
-  bullet: {fileID: 100000, guid: 02805d429db41b342b050875a2a5802c, type: 2}
+  shootingDistance: 0
+  bullet: {fileID: 100000, guid: 6024ac9176ceca84baf7c21ab1ced525, type: 2}
   move: 0
   hitRate: 1
   damage: 1

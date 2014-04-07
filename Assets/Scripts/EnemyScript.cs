@@ -41,7 +41,7 @@ public class EnemyScript : MonoBehaviour
 
 			if (distance <= shootingDistance && distance >= meleeDistance){
 				if (shootingCooldown <= 0){
-					Shoot();
+					//Shoot();
 				}
 			}
 			else if (distance <= meleeDistance && distance >= minDistance) {
