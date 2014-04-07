@@ -21,6 +21,7 @@ public class EnemyScript : MonoBehaviour
 	private HealthScript healthScript;
 	public int damage;
 	public int shootingDamage;
+	public float bulletSpeed;
 		
 	
 	// Use this for initialization
@@ -114,16 +115,26 @@ public class EnemyScript : MonoBehaviour
 				if(damageCooldown <= 0f)
 					canAttack = true;
 			}
+			
 
 			
 	}
 		void Shoot()
 		{
 			GameObject Bullet;
-			shootingCooldown = hitRate;
-			Bullet = Instantiate(bullet, transform.position, transform.rotation) as GameObject;
-			Vector3 fwd = transform.forward;
-			//Bullet.rigidbody2D.velocity = new Vector2(fwd * 10f,0f);
+			shootingCooldown = hitRate; ;
+			Quaternion bulletDirection = Quaternion.LookRotation(player.transform.position - transform.position);
+		    Debug.Log (bulletDirection);
+		    
+		    Bullet = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
+		    bulletDirection.x = 0;
+		    bulletDirection.y = 0;
+		    Debug.Log (bulletDirection.z);
+		    Vector2 forceDirection = player.transform.position - transform.position;
+		    Bullet.transform.rotation = Quaternion.Slerp (transform.rotation,bulletDirection, 1f);
+		    Bullet.rigidbody2D.AddForce(forceDirection*30);
+		    
+			
 		}
 
 	public bool Right()
