@@ -1590,7 +1590,7 @@ MonoBehaviour:
   minDistance: 1
   maxMovementSpeed: 10
   shootingDistance: 15
-  bullet: {fileID: 100000, guid: 02805d429db41b342b050875a2a5802c, type: 2}
+  bullet: {fileID: 100000, guid: 6024ac9176ceca84baf7c21ab1ced525, type: 2}
   move: 0
   hitRate: 1
   damage: 1
@@ -2217,6 +2217,10 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1280068562}
+    - target: {fileID: 11400000, guid: 7031dd3ea98f805459f3108fc5b91d42, type: 2}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 100000, guid: 6024ac9176ceca84baf7c21ab1ced525, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7031dd3ea98f805459f3108fc5b91d42, type: 2}
   m_RootGameObject: {fileID: 727964479}
