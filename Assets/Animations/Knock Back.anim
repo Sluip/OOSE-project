@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Hit
+  m_Name: Knock Back
   serializedVersion: 4
   m_AnimationType: 2
   m_Compressed: 0
@@ -17,10 +17,10 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: {x: .180000007, y: .370000005, z: 0}
+        value: {x: .180000007, y: -.159999996, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 53
+        tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
     path: 
@@ -29,20 +29,22 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300002, guid: 041d5f55762cbfe438a5a80b73fe8b30, type: 3}
-    - time: .0500000007
-      value: {fileID: 21300004, guid: 041d5f55762cbfe438a5a80b73fe8b30, type: 3}
-    - time: .100000001
-      value: {fileID: 21300006, guid: 041d5f55762cbfe438a5a80b73fe8b30, type: 3}
-    - time: .150000006
-      value: {fileID: 21300008, guid: 041d5f55762cbfe438a5a80b73fe8b30, type: 3}
-    - time: .200000003
-      value: {fileID: 21300010, guid: 041d5f55762cbfe438a5a80b73fe8b30, type: 3}
+      value: {fileID: 21300000, guid: 5b585bef21671d34eace5522347247e4, type: 3}
+    - time: .0833333358
+      value: {fileID: 21300002, guid: 5b585bef21671d34eace5522347247e4, type: 3}
+    - time: .166666672
+      value: {fileID: 21300004, guid: 5b585bef21671d34eace5522347247e4, type: 3}
+    - time: .25
+      value: {fileID: 21300006, guid: 5b585bef21671d34eace5522347247e4, type: 3}
+    - time: .333333343
+      value: {fileID: 21300008, guid: 5b585bef21671d34eace5522347247e4, type: 3}
+    - time: .416666657
+      value: {fileID: 21300010, guid: 5b585bef21671d34eace5522347247e4, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 20
+  m_SampleRate: 12
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -50,7 +52,7 @@ AnimationClip:
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
-    m_StopTime: .25
+    m_StopTime: .5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -83,7 +85,7 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: .370000005
+        value: -.159999996
         inSlope: 0
         outSlope: 0
         tangentMode: 10
