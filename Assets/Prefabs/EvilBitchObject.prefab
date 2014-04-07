@@ -229,6 +229,8 @@ MonoBehaviour:
   hitRate: 1
   damage: 1
   shootingDamage: 2
+  bulletSpeed: 0
+  enemy: {fileID: 400002}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

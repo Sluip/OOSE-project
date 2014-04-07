@@ -22,6 +22,8 @@ public class EnemyScript : MonoBehaviour
 	public int damage;
 	public int shootingDamage;
 	public float bulletSpeed;
+	private Animator anim;
+	public Transform enemy;
 		
 	
 	// Use this for initialization
@@ -32,6 +34,7 @@ public class EnemyScript : MonoBehaviour
 		damageCooldown = 0f;
 		healthScript = player.GetComponent<HealthScript> ();
 		healthBar.transform.renderer.material.color = Color.red;
+		anim = enemy.GetComponent<Animator> ();
 	}
 
 	void FixedUpdate ()
@@ -98,6 +101,8 @@ public class EnemyScript : MonoBehaviour
 				Vector3 temp = healthBar.localScale;
 				temp.z += 0.01f;
 				healthBar.localScale = temp;
+
+				anim.SetTrigger("hurt");
 		}
 
 		void Flip ()

@@ -122,7 +122,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .119999997, y: .370000005, z: 0}
+  m_LocalPosition: {x: 0, y: .370000005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400000}
@@ -134,7 +134,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.00033236, y: -2.18950391, z: -.5}
+  m_LocalPosition: {x: -6.00033236, y: -2.18950391, z: -.550000012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -269,7 +269,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4c28bb886ed800240ae33771d5818e49, type: 2}
   m_CullingMode: 1
@@ -290,6 +290,7 @@ MonoBehaviour:
   damage: 1
   hitRate: .25
   enemy: {fileID: 0}
+  player: {fileID: 400002}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -322,6 +323,7 @@ MonoBehaviour:
   startJumpSpeed: 0
   maxJumpSpeed: 800
   speedLimiter: 21
+  chargeTime: 0
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -368,7 +370,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300006, guid: 041d5f55762cbfe438a5a80b73fe8b30, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7c677253ee696d54f9e93253bcf626db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
