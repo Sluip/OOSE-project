@@ -22,6 +22,7 @@ public class EnemyScript : MonoBehaviour
 	public int damage;
 	public int shootingDamage;
 	public float bulletSpeed;
+	public Transform bulletTarget;
 		
 	
 	// Use this for initialization
@@ -42,7 +43,7 @@ public class EnemyScript : MonoBehaviour
 
 			if (distance <= shootingDistance && distance >= meleeDistance){
 				if (shootingCooldown <= 0){
-					//Shoot();
+					Shoot();
 				}
 			}
 			else if (distance <= meleeDistance && distance >= minDistance) {
@@ -120,19 +121,25 @@ public class EnemyScript : MonoBehaviour
 			
 	}
 		void Shoot()
-		{
+		{;
 			GameObject Bullet;
 			shootingCooldown = hitRate; ;
-			Quaternion bulletDirection = Quaternion.LookRotation(player.transform.position - transform.position);
-		    Debug.Log (bulletDirection);
+			Quaternion bulletDirection = Quaternion.LookRotation(bulletTarget.position - transform.position);
+		    //Debug.Log (bulletDirection);
 		    
 		    Bullet = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
 		    bulletDirection.x = 0;
 		    bulletDirection.y = 0;
 		    Debug.Log (bulletDirection.z);
-		    Vector2 forceDirection = player.transform.position - transform.position;
+		    Vector2 forceDirection = bulletTarget.position - transform.position;
 		    Bullet.transform.rotation = Quaternion.Slerp (transform.rotation,bulletDirection, 1f);
-		    Bullet.rigidbody2D.AddForce(forceDirection*30);
+		    //Bullet.rigidbody2D.AddForce(forceDirection*10);
+			Bullet.rigidbody2D.AddForce(forceDirection * Time.deltaTime * bulletSpeed);
+		    if (right){
+		    Vector3 scale = Bullet.transform.localScale;
+		    scale *= -1;
+		    Bullet.transform.localScale = scale;
+		    }
 		    
 			
 		}
