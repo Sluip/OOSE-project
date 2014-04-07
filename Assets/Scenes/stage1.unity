@@ -1093,6 +1093,11 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: f851bd25fd95d6d45ac31807069d5691, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7c677253ee696d54f9e93253bcf626db,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f851bd25fd95d6d45ac31807069d5691, type: 2}
   m_RootGameObject: {fileID: 1280068561}
@@ -2336,7 +2341,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300006, guid: 041d5f55762cbfe438a5a80b73fe8b30, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7c677253ee696d54f9e93253bcf626db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &922912035
 Transform:
