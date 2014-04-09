@@ -1,45 +1,52 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HealthScript : MonoBehaviour {
+public class HealthScript : MonoBehaviour
+{
 
-	private float HP = 10f;
-	public Transform healthBar;
-	[HideInInspector] public bool something;
+    private float HP = 10f;
+    public Transform healthBar;
+    [HideInInspector]
+    public bool something;
 
-	// Use this for initialization
-	void Start () {
-			
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    // Use this for initialization
+    void Start()
+    {
 
-		// Change color of health bar to yellow
-		if (HP <= 5) {
-			healthBar.transform.renderer.material.color = Color.yellow;
-		}
+    }
 
-		// Change color of health bar to red
-		if (HP < 3) {
-			healthBar.transform.renderer.material.color = Color.red;
-		}
+    // Update is called once per frame
+    void Update()
+    {
 
-		// If HP is 0 or less, destroy Player.
-		if(HP <= 0) {
+        // Change color of health bar to yellow
+        if (HP <= 5)
+        {
+            healthBar.transform.renderer.material.color = Color.yellow;
+        }
 
-			something = true;
-			Destroy(gameObject);
-		}
-	}
+        // Change color of health bar to red
+        if (HP < 3)
+        {
+            healthBar.transform.renderer.material.color = Color.red;
+        }
 
-	public void Hit (int damage)
-	{
-		HP -= damage;
+        // If HP is 0 or less, destroy Player.
+        if (HP <= 0)
+        {
 
-		// Scale health bar down
-		Vector3 temp = healthBar.localScale;
-		temp.z -= 0.1f;
-		healthBar.localScale = temp;
-	}
+            something = true;
+            Destroy(gameObject);
+        }
+    }
+
+    public void Hit(int damage)
+    {
+        HP -= damage;
+
+        // Scale health bar down
+        Vector3 temp = healthBar.localScale;
+        temp.z -= 0.1f;
+        healthBar.localScale = temp;
+    }
 }
