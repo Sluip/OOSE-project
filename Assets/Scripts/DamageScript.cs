@@ -24,8 +24,7 @@ public class DamageScript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-
+    { 
 
         if (damageCooldown > 0f)
         {
