@@ -13,9 +13,6 @@ public class BulletScript : MonoBehaviour
         playerHitbox = GameObject.FindGameObjectWithTag("PlayerHitbox");
         Destroy(gameObject, 5);
 		playerLayer = 1 << 8 | 1 << 14;
-		healthScript = 	
-
-
     }
 
     // Update is called once per frame
