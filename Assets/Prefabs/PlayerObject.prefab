@@ -350,7 +350,7 @@ MonoBehaviour:
   startJumpSpeed: 0
   maxJumpSpeed: 800
   speedLimiter: 21
-  chargeTime: 3
+  chargeTime: 150
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
