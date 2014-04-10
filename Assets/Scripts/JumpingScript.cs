@@ -41,12 +41,12 @@ public class JumpingScript : MonoBehaviour
         }
         if (charMove.Right())
         {
-            rectangleSize.x = groundChecker.position.x + 2.0f;
+            rectangleSize.x = groundChecker.position.x + 2.5f;
             rectangleSize.y = groundChecker.position.y + 0.2f;
         }
         else if (!charMove.Right())
         {
-            rectangleSize.x = groundChecker.position.x - 2.0f;
+            rectangleSize.x = groundChecker.position.x - 2.5f;
             rectangleSize.y = groundChecker.position.y + 0.2f;
         }
         grounded = Physics2D.OverlapArea(groundChecker.position, rectangleSize, bitMask);
@@ -141,7 +141,6 @@ public class JumpingScript : MonoBehaviour
         //Sprinting
         if (charMove.Sprinting())
         {
-        	Debug.Log (jumpSpeed);
 
 			if (jumpSpeed <= maxJumpSpeed)
 			{

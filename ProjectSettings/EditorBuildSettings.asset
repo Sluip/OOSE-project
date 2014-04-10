@@ -6,4 +6,4 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/stage1.unity
+    path: Assets/Scenes/Scene1_sebastian_version.unity
