@@ -11,7 +11,7 @@ GameObject:
   m_Layer: 9
   m_Name: GroundChecker
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 1319202362, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -126,7 +126,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.298911572, y: -.628059745, z: .0378417969}
+  m_LocalPosition: {x: -.248077869, y: -.62442863, z: .0378417969}
   m_LocalScale: {x: 1.02370858, y: 1.02370858, z: 1}
   m_Children: []
   m_Father: {fileID: 400002}
@@ -254,7 +254,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Radius: .188999996
+  m_Radius: .188690662
   m_Center: {x: 0, y: .00999999978}
 --- !u!61 &6100000
 BoxCollider2D:
@@ -265,8 +265,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .289999992, y: .254000008}
-  m_Center: {x: 0, y: -.00600000005}
+  m_Size: {x: .395593643, y: .123285055}
+  m_Center: {x: -4.76837158e-07, y: -.114929676}
 --- !u!61 &6100002
 BoxCollider2D:
   m_ObjectHideFlags: 1

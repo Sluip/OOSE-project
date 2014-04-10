@@ -4,12 +4,16 @@ using System.Collections;
 public class BulletScript : MonoBehaviour
 {
     private GameObject playerHitbox;
+	private int playerLayer;
+	private HealthScript healthScript;
 
     // Use this for initialization
     void Start()
     {
         playerHitbox = GameObject.FindGameObjectWithTag("PlayerHitbox");
-       // Destroy(gameObject, 5);
+        Destroy(gameObject, 5);
+		playerLayer = 1 << 8 | 1 << 14;
+		healthScript = 	
 
 
     }
@@ -18,10 +22,13 @@ public class BulletScript : MonoBehaviour
     void FixedUpdate()
     {
 		Vector2 rayDirection = playerHitbox.transform.position - transform.position;
-        if (Physics2D.Raycast(transform.position, rayDirection,0.1f)) {
+
+
+	if (Physics2D.Raycast(transform.position, rayDirection.normalized,0.1f, playerLayer)){
         	Destroy (gameObject);
+		}
         	}
 
-    }
+    
 
 }

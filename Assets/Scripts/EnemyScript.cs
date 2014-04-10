@@ -148,13 +148,14 @@ public class EnemyScript : MonoBehaviour
         Vector2 forceDirection = bulletTarget.position - transform.position;
         Bullet.transform.rotation = Quaternion.Slerp(transform.rotation, bulletDirection, 1f);
         //Bullet.rigidbody2D.AddForce(forceDirection*10);
-        Bullet.rigidbody2D.AddForce(forceDirection * Time.deltaTime * bulletSpeed);
+        Bullet.rigidbody2D.AddForce(forceDirection.normalized * Time.deltaTime * bulletSpeed);
         if (right)
         {
             Vector3 scale = Bullet.transform.localScale;
             scale *= -1;
             Bullet.transform.localScale = scale;
         }
+
 
 
     }
