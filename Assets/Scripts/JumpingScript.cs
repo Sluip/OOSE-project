@@ -16,7 +16,7 @@ public class JumpingScript : MonoBehaviour
     public float maxJumpSpeed;
     public float speedLimiter;
     private bool doubleJumped = false;
-    public float chargeTime;
+    public int chargeTime;
     private MovementScript charMove;
     private int bitMask = 1 << 9 | 1 << 10;
     private Animator anim;
@@ -136,11 +136,18 @@ public class JumpingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(jumpSpeed);
+
 
         //Sprinting
         if (charMove.Sprinting())
         {
+        	Debug.Log (jumpSpeed);
+
+			if (jumpSpeed <= maxJumpSpeed)
+			{
+				jumpSpeed += (int)(chargeTime * Time.deltaTime);
+			}
+			
 
             if (Input.GetButtonDown("Jump"))
             {
@@ -149,31 +156,18 @@ public class JumpingScript : MonoBehaviour
             }
         }
 
-        if (Input.GetButton("Run"))
-        {
-
-            running = true;
-        }
         else if (!charMove.Sprinting())
         {
+      
 
             if (Input.GetButtonDown("Jump") && !Input.GetKey(KeyCode.S))
-            {
+            {	
 
                 jumped = true;
             }
         }
 
-        if (running)
-        {
 
-            if (jumpSpeed <= maxJumpSpeed)
-            {
-                jumpSpeed += (int)(chargeTime * Time.deltaTime * 0.2f);
-            }
-
-            running = false;
-        }
 
 
 

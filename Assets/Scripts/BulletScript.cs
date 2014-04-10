@@ -3,13 +3,13 @@ using System.Collections;
 
 public class BulletScript : MonoBehaviour
 {
-    //private GameObject playerHitbox;
+    private GameObject playerHitbox;
 
     // Use this for initialization
     void Start()
     {
-        //playerHitbox = GameObject.FindGameObjectWithTag("PlayerHitbox");
-        Destroy(gameObject, 2);
+        playerHitbox = GameObject.FindGameObjectWithTag("PlayerHitbox");
+       // Destroy(gameObject, 5);
 
 
     }
@@ -17,9 +17,10 @@ public class BulletScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //if (Physics2D.Raycast(transform.position, playerHitbox.transform.position, 0.1f)) {
-        //	Destroy (gameObject);
-        //	}
+		Vector2 rayDirection = playerHitbox.transform.position - transform.position;
+        if (Physics2D.Raycast(transform.position, rayDirection,0.1f)) {
+        	Destroy (gameObject);
+        	}
 
     }
 
