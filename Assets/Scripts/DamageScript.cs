@@ -16,7 +16,7 @@ public class DamageScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        
         damageCooldown = 0f;
         animCoolDown = 0f;
         anim = player.GetComponent<Animator>();
@@ -24,8 +24,7 @@ public class DamageScript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-
+    { 
 
         if (damageCooldown > 0f)
         {

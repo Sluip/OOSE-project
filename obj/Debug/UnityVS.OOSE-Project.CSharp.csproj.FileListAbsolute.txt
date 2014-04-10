@@ -1,9 +1,0 @@
-C:\Users\Mads\OOSE-Project\Temp\UnityVS_bin\Debug\Assembly-CSharp.dll
-C:\Users\Mads\OOSE-Project\Temp\UnityVS_bin\Debug\Assembly-CSharp.pdb
-C:\Users\Mads\OOSE-Project\Temp\UnityVS_bin\Debug\UnityEditor.dll
-C:\Users\Mads\OOSE-Project\Temp\UnityVS_bin\Debug\UnityEngine.dll
-C:\Users\Mads\OOSE-Project\Temp\UnityVS_bin\Debug\UnityEngine.xml
-C:\Users\Mads\OOSE-Project\Temp\UnityVS_bin\Debug\UnityEditor.xml
-C:\Users\Mads\OOSE-Project\obj\Debug\UnityVS.OOSE-Project.CSharp.csprojResolveAssemblyReference.cache
-C:\Users\Mads\OOSE-Project\obj\Debug\Assembly-CSharp.dll
-C:\Users\Mads\OOSE-Project\obj\Debug\Assembly-CSharp.pdb
