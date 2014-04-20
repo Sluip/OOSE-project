@@ -47,7 +47,7 @@ public class CameraScript : MonoBehaviour
             }
             else if (player.position.y < 1.0f)
             {
-                topScreen = false;
+                topScreen = true;
             }
 
         }
