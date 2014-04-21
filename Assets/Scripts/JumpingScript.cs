@@ -137,7 +137,6 @@ public class JumpingScript : MonoBehaviour
     void Update()
     {
 
-
         //Sprinting
         if (charMove.Sprinting())
         {
