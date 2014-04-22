@@ -10,6 +10,7 @@ TagManager:
   - PlayerHitbox
   - Bullet
   - PlayerDamagebox
+  - BulletTarget
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

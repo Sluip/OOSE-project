@@ -46,7 +46,7 @@ public class HealthScript : MonoBehaviour
 
         // Scale health bar down
         Vector3 temp = healthBar.localScale;
-        temp.z -= 0.1f;
+        temp.z -= damage*0.1f;
         healthBar.localScale = temp;
     }
 }

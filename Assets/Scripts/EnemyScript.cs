@@ -6,7 +6,7 @@ public class EnemyScript : MonoBehaviour
 
     public int HP;
     public Transform healthBar;
-    public Transform player;
+    private Transform player;
     public float meleeDistance;
     public float minDistance;
     public float maxMovementSpeed;
@@ -16,13 +16,14 @@ public class EnemyScript : MonoBehaviour
     private bool right;
     private float damageCooldown;
     private float shootingCooldown;
+    public float shootingRate;
     public float hitRate;
     private bool canAttack = false;
     private HealthScript healthScript;
     public int damage;
     public int shootingDamage;
     public float bulletSpeed;
-    public Transform bulletTarget;
+    private Transform bulletTarget;
     private Animator anim;
     public Transform enemy;
 
@@ -30,6 +31,8 @@ public class EnemyScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+    	player = GameObject.FindGameObjectWithTag("Player").transform;
+    	bulletTarget = GameObject.FindGameObjectWithTag ("BulletTarget").transform;
         move = 3.5f;
         right = false;
         damageCooldown = 0f;
@@ -136,9 +139,8 @@ public class EnemyScript : MonoBehaviour
     }
     void Shoot()
     {
-        ;
+		shootingCooldown = shootingRate;
         GameObject Bullet;
-        shootingCooldown = hitRate; ;
         Quaternion bulletDirection = Quaternion.LookRotation(bulletTarget.position - transform.position);
         //Debug.Log (bulletDirection);
 
