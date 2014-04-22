@@ -146,7 +146,7 @@ EdgeCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c981e0f8ac0684c46867af3d35fd4e0c, type: 2}
   m_IsTrigger: 0
   m_Points:
   - {x: -.640056133, y: -.00142288208}
