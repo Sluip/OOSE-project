@@ -81,7 +81,6 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         // Death
         if (HP <= 0)
         {
@@ -102,6 +101,8 @@ public class EnemyScript : MonoBehaviour
             canAttack = false;
 			anim.SetTrigger("hit");
             damageCooldown = hitRate;
+
+			if(!anim.GetCurrentAnimatorStateInfo(0).IsName("Knock Back"))
             healthScript.Hit(damage);
         }
 
@@ -111,7 +112,8 @@ public class EnemyScript : MonoBehaviour
 
     public void Hurt(int damage)
     {
-        HP -= damage;
+
+		HP -= damage;
 
         // Scale health bar down
         Vector3 temp = healthBar.localScale;
@@ -136,16 +138,12 @@ public class EnemyScript : MonoBehaviour
             if (damageCooldown <= 0f)
                 canAttack = true;
         }
-
-
-
     }
     void Shoot()
     {
 		shootingCooldown = shootingRate;
         GameObject Bullet;
         Quaternion bulletDirection = Quaternion.LookRotation(bulletTarget.position - transform.position);
-        //Debug.Log (bulletDirection);
 
         Bullet = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
         bulletDirection.x = 0;
