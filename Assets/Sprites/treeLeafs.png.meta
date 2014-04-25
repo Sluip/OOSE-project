@@ -49,18 +49,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 12
-        y: 150
+        y: 151
         width: 97
-        height: 90
+        height: 89
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: treeLeafs_1
       rect:
         serializedVersion: 2
-        x: 143
-        y: 150
+        x: 124
+        y: 148
         width: 97
-        height: 90
+        height: 92
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: treeLeafs_2
