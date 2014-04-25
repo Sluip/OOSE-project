@@ -105,7 +105,6 @@ public class EnemyScript : MonoBehaviour
             healthScript.Hit(damage);
         }
 
-		Debug.Log (rigidbody2D.velocity.x);
 		float moveX = rigidbody2D.velocity.x;
 		anim.SetFloat("speed", Mathf.Abs(moveX));
     }

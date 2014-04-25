@@ -4,7 +4,7 @@ using System.Collections;
 public class HealthScript : MonoBehaviour
 {
 
-    private float HP = 10f;
+    private float HP;
     public Transform healthBar;
     [HideInInspector]
     public bool something;
@@ -12,7 +12,7 @@ public class HealthScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+	HP = 10f;
     }
 
     // Update is called once per frame
@@ -38,6 +38,8 @@ public class HealthScript : MonoBehaviour
             something = true;
             Destroy(gameObject);
         }
+        if (transform.position.y < 0.0f) 
+        Death();
     }
 
     public void Hit(int damage)
@@ -47,6 +49,11 @@ public class HealthScript : MonoBehaviour
         // Scale health bar down
         Vector3 temp = healthBar.localScale;
         temp.z -= damage*0.1f;
+        if (temp.z < 0)
+        temp.z = 0;
         healthBar.localScale = temp;
+    }
+    public void Death() {
+    	Hit(1000);
     }
 }

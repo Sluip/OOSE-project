@@ -27,9 +27,12 @@ public class BulletScript : MonoBehaviour
 
 		if (Physics2D.Raycast(transform.position, rayDirection.normalized,1.0f, playerLayer)){
 			healthScript.Hit(2);
-        	
-        		Destroy (gameObject);
+        	Destroy (gameObject);
 		}
+		else if (Physics2D.Raycast(transform.position, rayDirection.normalized,1.0f)){
+			Destroy(gameObject);
+		}	
+			
         	}
 }
     
