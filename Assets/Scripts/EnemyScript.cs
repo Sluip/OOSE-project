@@ -33,7 +33,6 @@ public class EnemyScript : MonoBehaviour
     {
     	player = GameObject.FindGameObjectWithTag("Player").transform;
     	bulletTarget = GameObject.FindGameObjectWithTag ("BulletTarget").transform;
-        move = 3.5f;
         right = false;
         damageCooldown = 0f;
         healthScript = player.GetComponent<HealthScript>();
@@ -101,9 +100,14 @@ public class EnemyScript : MonoBehaviour
         if (canAttack)
         {
             canAttack = false;
+			anim.SetTrigger("hit");
             damageCooldown = hitRate;
             healthScript.Hit(damage);
         }
+
+		Debug.Log (rigidbody2D.velocity.x);
+		float moveX = rigidbody2D.velocity.x;
+		anim.SetFloat("speed", Mathf.Abs(moveX));
     }
 
     public void Hurt(int damage)
