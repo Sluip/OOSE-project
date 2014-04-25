@@ -12,6 +12,9 @@ public class JumpingScript : MonoBehaviour
     public float startJumpSpeed;
     public float maxJumpSpeed;
     public float speedLimiter;
+    public float deathThreshold;
+	private float deathFall;
+	private HealthScript healthScript;
     private bool doubleJumped = false;
     private MovementScript charMove;
     private int bitMask = 1 << 9 | 1 << 10;
@@ -19,12 +22,15 @@ public class JumpingScript : MonoBehaviour
     private bool jumped;
     private bool running;
     private Vector2 rectangleSize;
+   
 
     void Start()
     {
+    	healthScript = GetComponent<HealthScript>();
         charMove = gameObject.GetComponent<MovementScript>();
         startJumpSpeed = (maxJumpSpeed / 1.3f);
         anim = player.GetComponent<Animator>();
+        deathFall = 0;
     }
 
     void FixedUpdate()
@@ -33,6 +39,10 @@ public class JumpingScript : MonoBehaviour
         {
             rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, speedLimiter);
         }
+       	if (rigidbody2D.velocity.y < 0)
+       	{
+       		deathFall = rigidbody2D.velocity.y;
+       	}
         if (charMove.Right())
         {
             rectangleSize.x = groundChecker.position.x + 0.4f;
@@ -45,9 +55,18 @@ public class JumpingScript : MonoBehaviour
         }
 
         grounded = Physics2D.OverlapArea(groundChecker.position, rectangleSize, bitMask);
+        
+        
 
         if (grounded)
-        {
+        {	
+        	if (deathFall < deathThreshold){
+        		healthScript.Death ();
+        	}
+        	else if (deathFall > deathThreshold){
+        		deathFall = 0;
+        }
+        	
 
             doubleJumped = false;
         }
@@ -99,6 +118,8 @@ public class JumpingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    if (rigidbody2D.velocity.y < 0)
+    	Debug.Log (rigidbody2D.velocity.y);
 
         if (Input.GetButtonDown("Jump") && !Input.GetKey(KeyCode.S))
         {
