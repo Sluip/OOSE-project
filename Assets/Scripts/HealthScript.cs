@@ -54,6 +54,6 @@ public class HealthScript : MonoBehaviour
         healthBar.localScale = temp;
     }
     public void Death() {
-    	Hit(1000);
+    	this.Hit(1000);
     }
 }

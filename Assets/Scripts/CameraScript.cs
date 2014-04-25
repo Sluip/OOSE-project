@@ -70,7 +70,7 @@ public class CameraScript : MonoBehaviour
         transformInverse.x = transform.position.x + 1f;
         transformInverse.y = transform.position.y;
         if (Mathf.Abs (player.rigidbody2D.velocity.x) > 0 || Mathf.Abs(player.rigidbody2D.velocity.y) > 0 || startPosition)
-        transform.position = Vector3.SmoothDamp(transform.position, endpoint, ref v, moveSpeed);;
+         transform.position = Vector3.SmoothDamp(transform.position, endpoint, ref v, moveSpeed);
 		
 		
     }

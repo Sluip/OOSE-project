@@ -21,6 +21,7 @@ public class FallBlock : MonoBehaviour {
 			fallTimer -= Time.deltaTime;
 		if(fallTimer <= 0) {
 			transform.rigidbody2D.isKinematic = false;
+			Destroy(gameObject,6);
 			}
 			 
 	
