@@ -3,14 +3,15 @@ using System.Collections;
 
 public class Switch : MonoBehaviour
 {
-
-		private GameObject Door;
+		public GameObject button;
+		private Animator anim;
+		private GameObject[] doors;
 
 		// Use this for initialization
 		void Start ()
 		{
-	
-				Door = GameObject.Find ("Door1");
+			anim = button.GetComponent<Animator>();
+			doors = GameObject.FindGameObjectsWithTag("Door");
 	
 		}
 	
@@ -23,8 +24,11 @@ public class Switch : MonoBehaviour
 		void OnTriggerEnter2D (Collider2D o)
 		{
 				if (o.gameObject.tag == "Player") {
-						Debug.Log ("OK");
-						Destroy (Door);
+						anim.SetTrigger("switch");
+				
+				for(int i = 0 ; i < doors.Length ; i++)
+						Destroy (doors[i]);
 				}
 		}
+	
 }
