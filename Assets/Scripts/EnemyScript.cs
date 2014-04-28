@@ -85,7 +85,7 @@ public class EnemyScript : MonoBehaviour
         if (HP <= 0)
         {
             anim.SetTrigger("Death");
-            Destroy(gameObject, 1);
+			Destroy(gameObject, 1);
         }
 
         if (damageCooldown > 0)

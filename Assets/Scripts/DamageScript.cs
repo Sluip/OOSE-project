@@ -63,7 +63,7 @@ public class DamageScript : MonoBehaviour
         {
             canAttack = false;
             damageCooldown = hitRate;
-            enemy.gameObject.GetComponent<EnemyScript>().Hurt(damage);
+		    enemy.gameObject.GetComponent<EnemyScript>().Hurt(damage);
         }
     }
 }
