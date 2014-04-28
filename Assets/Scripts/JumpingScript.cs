@@ -118,8 +118,6 @@ public class JumpingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    if (rigidbody2D.velocity.y < 0)
-    	Debug.Log (rigidbody2D.velocity.y);
 
         if (Input.GetButtonDown("Jump") && !Input.GetKey(KeyCode.S))
         {
