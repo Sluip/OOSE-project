@@ -7,7 +7,8 @@ public class MovementScript : MonoBehaviour
     private bool right;
     public Transform bitch;
     private bool sprinting;
-    private float move;
+	[HideInInspector]
+    public float move;
     Animator anim;
     private bool isSprinting;
     [HideInInspector]

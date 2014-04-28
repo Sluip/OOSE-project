@@ -14,6 +14,11 @@ TagManager:
   - Door
   - Door2
   - TipSpace
+  - TipMove
+  - TipSprint
+  - TipDownJump
+  - TipHit
+  - TipDoubleJump
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

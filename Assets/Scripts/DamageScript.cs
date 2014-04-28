@@ -36,7 +36,7 @@ public class DamageScript : MonoBehaviour
             animCoolDown -= Time.deltaTime;
         }
 
-        if (Input.GetKeyDown("r") && (animCoolDown <= 0f))
+        if (Input.GetKeyDown("j") && (animCoolDown <= 0f))
         {
             anim.SetTrigger("hit");
             animCoolDown = hitRate;
