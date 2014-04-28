@@ -3,11 +3,15 @@ using System.Collections;
 
 public class HitTipScript : MonoBehaviour {
 	
-	private bool hitTip = false;
+	private TipAnimationTrigger tipAnimationTrigger;
+	private GameObject tips;
+	public GameObject hitKey;
 	
 	// Use this for initialization
 	void Start () {
 		
+		tips = GameObject.FindWithTag("Tips");
+		tipAnimationTrigger = tips.GetComponent<TipAnimationTrigger> ();
 	}
 	
 	// Update is called once per frame
@@ -18,16 +22,24 @@ public class HitTipScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if(other.gameObject.tag == "Player")
-			hitTip = true;
+		{
+			tipAnimationTrigger.Tip (true);
+			TipRenderer(true);
+		}
+		
 	}
 	
-	public bool HitTip()
+	void OnTriggerExit2D(Collider2D other)
 	{
-		return hitTip;
+		if(other.gameObject.tag == "Player")
+		{
+			tipAnimationTrigger.Tip (false);
+			TipRenderer(false);
+		}
 	}
 	
-	public void HitTipDisable()
+	private void TipRenderer(bool b)
 	{
-		hitTip = false;
+		hitKey.renderer.enabled = b;
 	}
 }

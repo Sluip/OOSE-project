@@ -3,15 +3,15 @@ using System.Collections;
 
 public class MoveTipScript : MonoBehaviour {
 	
-	private bool moveTip = false;
-	private MovementScript movementScript;
-	private GameObject player;
+	private TipAnimationTrigger tipAnimationTrigger;
+	private GameObject tips;
+	public GameObject moveKeys;
 	
 	// Use this for initialization
 	void Start () {
 
-		player = GameObject.FindWithTag("Player");
-		movementScript = player.GetComponent<MovementScript> ();
+		tips = GameObject.FindWithTag("Tips");
+		tipAnimationTrigger = tips.GetComponent<TipAnimationTrigger> ();
 	}
 	
 	// Update is called once per frame
@@ -22,17 +22,24 @@ public class MoveTipScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if(other.gameObject.tag == "Player")
-			moveTip = true;
-			movementScript.maxMovementSpeed = 0f;
+		{
+			tipAnimationTrigger.Tip (true);
+			TipRenderer(true);
+		}
+
 	}
-	
-	public bool MoveTip()
+
+	void OnTriggerExit2D(Collider2D other)
 	{
-		return moveTip;
+		if(other.gameObject.tag == "Player")
+		{
+			tipAnimationTrigger.Tip (false);
+			TipRenderer(false);
+		}
 	}
-	
-	public void MoveTipDisable()
+
+	private void TipRenderer(bool b)
 	{
-		moveTip = false;
+		moveKeys.renderer.enabled = b;
 	}
 }

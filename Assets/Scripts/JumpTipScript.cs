@@ -3,15 +3,15 @@ using System.Collections;
 
 public class JumpTipScript : MonoBehaviour {
 
-	private bool spaceTip = false;
-	private MovementScript movementScript;
-	private GameObject player;
+	private GameObject tips;
+	private TipAnimationTrigger tipAnimationTrigger;
+	public GameObject spaceBar;
 
 	// Use this for initialization
 	void Start () {
 
-		player = GameObject.FindWithTag("Player");
-		movementScript = player.GetComponent<MovementScript> ();
+		tips = GameObject.FindWithTag("Tips");
+		tipAnimationTrigger = tips.GetComponent<TipAnimationTrigger> ();
 	}
 	
 	// Update is called once per frame
@@ -22,17 +22,23 @@ public class JumpTipScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if(other.gameObject.tag == "Player")
-			spaceTip = true;
-			movementScript.maxMovementSpeed = 0f;
+		{
+			tipAnimationTrigger.Tip (true);
+			TipRenderer(true);
+		}
 	}
 
-	public bool SpaceTip()
+	void OnTriggerExit2D(Collider2D other)
 	{
-		return spaceTip;
+		if(other.gameObject.tag == "Player")
+		{
+			tipAnimationTrigger.Tip (false);
+			TipRenderer(false);
+		}
 	}
 
-	public void SpaceTipDisable()
+	private void TipRenderer(bool b)
 	{
-		spaceTip = false;
+		spaceBar.renderer.enabled = b;
 	}
 }

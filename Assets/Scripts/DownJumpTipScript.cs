@@ -3,11 +3,15 @@ using System.Collections;
 
 public class DownJumpTipScript : MonoBehaviour {
 	
-	private bool downJumpTip = false;
+	private TipAnimationTrigger tipAnimationTrigger;
+	private GameObject tips;
+	public GameObject downJump;
 	
 	// Use this for initialization
 	void Start () {
 		
+		tips = GameObject.FindWithTag("Tips");
+		tipAnimationTrigger = tips.GetComponent<TipAnimationTrigger> ();
 	}
 	
 	// Update is called once per frame
@@ -18,16 +22,24 @@ public class DownJumpTipScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if(other.gameObject.tag == "Player")
-			downJumpTip = true;
+		{
+			tipAnimationTrigger.Tip (true);
+			TipRenderer(true);
+		}
+		
 	}
 	
-	public bool DownJumpTip()
+	void OnTriggerExit2D(Collider2D other)
 	{
-		return downJumpTip;
+		if(other.gameObject.tag == "Player")
+		{
+			tipAnimationTrigger.Tip (false);
+			TipRenderer(false);
+		}
 	}
 	
-	public void DownJumpTipDisable()
+	private void TipRenderer(bool b)
 	{
-		downJumpTip = false;
+		downJump.renderer.enabled = b;
 	}
 }
