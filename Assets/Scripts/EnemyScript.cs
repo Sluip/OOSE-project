@@ -27,7 +27,7 @@ public class EnemyScript : MonoBehaviour
 		private Animator anim;
 		public Transform enemy;
 		private int enemyLayer;
-		public GameObject visionStart;
+		public GameObject visionStart, visionEnd, visionHigh, visionLow;
 		private int playerLayer;
 
 
@@ -68,10 +68,9 @@ public class EnemyScript : MonoBehaviour
 
 								if (direction.x < 0) {
 										rigidbody2D.velocity = new Vector2 (move * -1, rigidbody2D.velocity.y);
-									}
-								else if (direction.x > 0) {
+								} else if (direction.x > 0) {
 										rigidbody2D.velocity = new Vector2 (move, rigidbody2D.velocity.y);
-										}
+								}
 						}
 
 						if (distance >= meleeDistance || distance <= minDistance) {
@@ -84,7 +83,9 @@ public class EnemyScript : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-		
+				Debug.DrawLine (visionStart.transform.position, visionEnd.transform.position, Color.red);
+				Debug.DrawLine (visionStart.transform.position, visionHigh.transform.position, Color.red);
+				Debug.DrawLine (visionStart.transform.position, visionLow.transform.position, Color.red);
 				// Death
 				if (HP <= 0) {
 						anim.SetTrigger ("Death");
@@ -170,17 +171,33 @@ public class EnemyScript : MonoBehaviour
 
 		bool LineOfSight ()
 		{
+			
 				bool playerSpotted = false;
 				Vector2 viewDirection = bulletTarget.transform.position - visionStart.transform.position;
-				RaycastHit2D hit = Physics2D.Raycast (visionStart.transform.position, viewDirection.normalized, shootingDistance, ~enemyLayer);
-				
-				if (hit.collider != null) {
-						if (hit.collider.tag == "PlayerDamagebox" || hit.collider.tag == "PlayerHitbox") {
+				RaycastHit2D hithigh = Physics2D.Linecast (visionStart.transform.position, visionHigh.transform.position, ~enemyLayer);
+				RaycastHit2D hitmid = Physics2D.Linecast (visionStart.transform.position, visionEnd.transform.position, ~enemyLayer);
+				RaycastHit2D hitlow = Physics2D.Linecast (visionStart.transform.position, visionLow.transform.position, ~enemyLayer);		
+				if (hithigh.collider != null) {
+						if (hithigh.collider.tag == "PlayerDamagebox" || hithigh.collider.tag == "PlayerHitbox") {
 								playerSpotted = true;
 						}
-	
 				}
+				if (hitmid.collider != null) {
+						if (hitmid.collider.tag == "PlayerDamagebox" || hitmid.collider.tag == "PlayerHitbox") {
+								playerSpotted = true;
+						}
+				}
+				if (hitlow.collider != null) {
+						if (hitlow.collider.tag == "PlayerDamagebox" || hitlow.collider.tag == "PlayerHitbox") {
+								playerSpotted = true;
+						}
+				}
+			
+			
+			
+				
 				return playerSpotted;
 		}
+				
 
 }
