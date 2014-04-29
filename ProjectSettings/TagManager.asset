@@ -21,6 +21,7 @@ TagManager:
   - TipDoubleJump
   - Tips
   - PlayerInner
+  - HealthBarPlayer
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
