@@ -30,6 +30,7 @@ public class EnemyScript : MonoBehaviour
 	public GameObject visionStart, visionEnd, visionHigh, visionLow;
 	private int playerLayer;
 	private bool aiming;
+
 	
 	
 	// Use this for initialization
@@ -44,6 +45,7 @@ public class EnemyScript : MonoBehaviour
 		anim = enemy.GetComponent<Animator>();
 		enemyLayer = 1 << 13;
 		playerLayer = 1 << 8 | 1 << 14;
+
 	}
 	
 	void FixedUpdate()
@@ -127,8 +129,9 @@ public class EnemyScript : MonoBehaviour
 			anim.SetTrigger("hit");
 			damageCooldown = hitRate;
 			
-			if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Knock Back"))
+			if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Knock Back")){
 				healthScript.Hit(damage);
+			}
 		}
 		
 		float moveX = rigidbody2D.velocity.x;
