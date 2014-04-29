@@ -1,33 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//We use this class to control the pause menu
 public class MenuScript : MonoBehaviour
 {
 
-    public Texture2D buttonTexture;
-    public Texture2D buttonTexture2;
-    public Texture2D buttonTexture3;
-    private bool isPaused;
-    public int buttonWidth;
-    public int buttonHeight;
-    public Transform player;
-    private HealthScript healthScript;
+    public Texture2D buttonTexture, buttonTexture2, buttonTexture3;
 
-    // Use this for initialization
+    private bool isPaused;
+    public int buttonWidth, buttonHeight;
+
+    private HealthScript healthScript;
+    public Transform player;
+
     void Start()
     {
-
+        //Starts in an unpaused state
         isPaused = false;
         healthScript = player.GetComponent<HealthScript>();
     }
-
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetButtonDown("Escape") || healthScript.something)
+        //If player is dead or presses escape, pause the game, can't unpause if player is dead
+        if (Input.GetButtonDown("Escape") || healthScript.IsDead())
         {
-            healthScript.something = false;
 
             if (!isPaused)
             {
@@ -35,7 +32,7 @@ public class MenuScript : MonoBehaviour
                 isPaused = !isPaused;
             }
 
-            else if (isPaused)
+            else if (isPaused && !healthScript.IsDead())
             {
                 Time.timeScale = 1f;
                 isPaused = !isPaused;
@@ -45,6 +42,7 @@ public class MenuScript : MonoBehaviour
 
     void OnGUI()
     {
+        //Brings up the menu during pause
         if (isPaused)
         {
 
@@ -53,24 +51,19 @@ public class MenuScript : MonoBehaviour
                 //Resume button
                 if (GUI.Button(new Rect((Screen.width / 2 - buttonWidth / 2), (Screen.height / 2 - buttonHeight / 2) - 100, buttonWidth, buttonHeight), buttonTexture))
                 {
-
                     Time.timeScale = 1f;
                     isPaused = !isPaused;
                 }
             }
-
             //Restart button
             if (GUI.Button(new Rect((Screen.width / 2 - buttonWidth / 2), (Screen.height / 2 - buttonHeight / 2), buttonWidth, buttonHeight), buttonTexture2))
             {
-
                 Application.LoadLevel(Application.loadedLevel);
                 Time.timeScale = 1f;
             }
-
             //Quit Game button
             if (GUI.Button(new Rect((Screen.width / 2 - buttonWidth / 2), (Screen.height / 2 - buttonHeight / 2) + 100, buttonWidth, buttonHeight), buttonTexture3))
             {
-
                 Application.Quit();
             }
         }

@@ -1,22 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//We use this class to control the tip for sprinting, see DoubleJumpTipScript for further details
 public class SprintTipScript : MonoBehaviour {
 	
-	private TipAnimationTrigger tipAnimationTrigger;
 	private GameObject tips;
 	public GameObject sprintKey;
+
+	private TipAnimationTrigger tipAnimationTrigger;
 	
 	// Use this for initialization
 	void Start () {
 		
 		tips = GameObject.FindWithTag("Tips");
 		tipAnimationTrigger = tips.GetComponent<TipAnimationTrigger> ();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 	
 	void OnTriggerEnter2D(Collider2D other)

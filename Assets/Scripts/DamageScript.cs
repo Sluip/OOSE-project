@@ -5,27 +5,30 @@ public class DamageScript : MonoBehaviour
 {
 
     public int damage = 1;
-    public float hitRate;
-    private bool canAttack = false;
-    private float damageCooldown;
+    public float hitRate, damageCooldown, animCoolDown;
+    private bool canAttack;
+    
     private Animator anim;
-    public Transform player;
-    private float animCoolDown;
 	private EnemyScript enemyScript;
+
+    public Transform player;
 
     // Use this for initialization
     void Start()
     {
-        
+        //The player doesn't start within range of an enemy so this is false
+        canAttack = false;
+        //Setting our initial variables to make the player start out being able to perform an attack
         damageCooldown = 0f;
         animCoolDown = 0f;
+        //Finding the animator component to control the animation
         anim = player.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     { 
-
+        //Controlling cooldowns, if they are above 0 they will count down using deltaTime
         if (damageCooldown > 0f)
         {
             damageCooldown -= Time.deltaTime;
@@ -35,8 +38,8 @@ public class DamageScript : MonoBehaviour
         {
             animCoolDown -= Time.deltaTime;
         }
-
-        if (Input.GetKeyDown("j") && (animCoolDown <= 0f))
+        //If attack is pressed, and there is no nearby enemy, play the attack animation, otherwise go to CanAttack
+        if (Input.GetButtonDown("Attack") && (animCoolDown <= 0f))
         {
 			animCoolDown = hitRate;
 			if (enemyScript == null)
@@ -50,7 +53,8 @@ public class DamageScript : MonoBehaviour
     }
 
 
-    // Melee system
+    // Melee systee, if you are standing close to an enemy, canAttack becomes true, and it makes sure that you get the enemyScript 
+    //from the opponent you are currently fighting.
     void OnTriggerStay2D(Collider2D enemy)
     {
     	
@@ -70,6 +74,7 @@ public class DamageScript : MonoBehaviour
 	}
     void CanAttack()
     {
+        //If you are spotted by an enemy, play the normal hit animation and call Hurt to damage the enemy with normal damage.
         if (canAttack && enemyScript.IsSpotted())
         {
 			anim.SetTrigger("hit");	
@@ -78,6 +83,8 @@ public class DamageScript : MonoBehaviour
 		    enemyScript.Hurt(damage);
 				
 		}
+        //If you are not spotted by the enemy, it means he is not facing you and you therefore backstab instead, dealing 100
+        //See IsSpotted() and LineOfSight() declaration in EnemyScript for more details on how this is performed.
         else if (canAttack && !enemyScript.IsSpotted())
         {
         	anim.SetTrigger ("stab");

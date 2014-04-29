@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//We use this class to control the tip for DownJump, see DoubleJumpTipScript for further details
 public class DownJumpTipScript : MonoBehaviour {
 	
 	private TipAnimationTrigger tipAnimationTrigger;
+	
 	private GameObject tips;
 	public GameObject downJump;
 	
@@ -12,11 +14,6 @@ public class DownJumpTipScript : MonoBehaviour {
 		
 		tips = GameObject.FindWithTag("Tips");
 		tipAnimationTrigger = tips.GetComponent<TipAnimationTrigger> ();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 	
 	void OnTriggerEnter2D(Collider2D other)
