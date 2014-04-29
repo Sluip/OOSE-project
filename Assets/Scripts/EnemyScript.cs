@@ -29,6 +29,7 @@ public class EnemyScript : MonoBehaviour
 	private int enemyLayer;
 	public GameObject visionStart, visionEnd, visionHigh, visionLow;
 	private int playerLayer;
+	private bool aiming;
 	
 	
 	// Use this for initialization
@@ -57,12 +58,13 @@ public class EnemyScript : MonoBehaviour
 				
 				if (shootingCooldown <= 0 && LineOfSight())
 				{
-					Debug.Log("In vision, shooting");
+					anim.SetTrigger ("shoot");
 					Shoot();
 				}
 			}
 			else if (distance <= meleeDistance && distance >= minDistance)
 			{
+				aiming = false;
 				//Making a relativity vector between player and enemy
 				Vector2 direction = player.position - transform.position;
 				//Making the enemy able to face the player depending on where the player is
@@ -80,6 +82,8 @@ public class EnemyScript : MonoBehaviour
 					rigidbody2D.velocity = new Vector2(move, rigidbody2D.velocity.y);
 				}
 			}
+			else if (!LineOfSight())
+				aiming = false;
 			
 			if (distance >= meleeDistance || distance <= minDistance)
 			{
@@ -95,6 +99,9 @@ public class EnemyScript : MonoBehaviour
 		Debug.DrawLine(visionStart.transform.position, visionEnd.transform.position, Color.red);
 		Debug.DrawLine(visionStart.transform.position, visionHigh.transform.position, Color.red);
 		Debug.DrawLine(visionStart.transform.position, visionLow.transform.position, Color.red);
+
+		anim.SetBool("aim", aiming);
+
 		// Death
 		if (HP <= 0)
 		{
@@ -108,6 +115,9 @@ public class EnemyScript : MonoBehaviour
 		}
 		if (shootingCooldown > 0)
 		{
+			if (LineOfSight())
+			aiming = true;
+
 			shootingCooldown -= Time.deltaTime;
 		}
 		

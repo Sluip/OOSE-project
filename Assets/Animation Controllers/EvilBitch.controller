@@ -32,6 +32,18 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
+  - m_Name: shoot
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: aim
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 3
     m_Name: Base Layer
@@ -182,7 +194,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
-    m_ConditionEvent: 
+    m_ConditionEvent: hurt
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
@@ -199,8 +211,8 @@ Transition:
   m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: 
+  - m_ConditionMode: 1
+    m_ConditionEvent: aim
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
@@ -322,11 +334,11 @@ Transition:
   m_Name: 
   m_SrcState: {fileID: 110260668}
   m_DstState: {fileID: 110242696}
-  m_TransitionDuration: 1.19999993
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: 
+  - m_ConditionMode: 1
+    m_ConditionEvent: shoot
     m_EventTreshold: 0
     m_ExitTime: 0
   m_Atomic: 1
@@ -416,11 +428,11 @@ Transition:
   m_Name: 
   m_SrcState: {fileID: 110260668}
   m_DstState: {fileID: 110208560}
-  m_TransitionDuration: 1.19999993
+  m_TransitionDuration: .000560045184
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: 
+  - m_ConditionMode: 2
+    m_ConditionEvent: aim
     m_EventTreshold: 0
     m_ExitTime: 0
   m_Atomic: 1
@@ -551,15 +563,6 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110242696}
-      second:
-      - {fileID: 110137638}
-    data:
-      first: {fileID: 110260668}
-      second:
-      - {fileID: 110198460}
-      - {fileID: 110180756}
-    data:
       first: {fileID: 0}
       second: []
     data:
@@ -594,6 +597,15 @@ StateMachine:
     data:
       first: {fileID: 110202162}
       second: []
+    data:
+      first: {fileID: 110260668}
+      second:
+      - {fileID: 110198460}
+      - {fileID: 110180756}
+    data:
+      first: {fileID: 110242696}
+      second:
+      - {fileID: 110137638}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 36, y: -24, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

@@ -12,6 +12,7 @@ public class DamageScript : MonoBehaviour
     private Animator anim;
     public Transform player;
     private float animCoolDown;
+	private EnemyScript enemyScript;
 
     // Use this for initialization
     void Start()
@@ -20,6 +21,7 @@ public class DamageScript : MonoBehaviour
         damageCooldown = 0f;
         animCoolDown = 0f;
         anim = player.GetComponent<Animator>();
+		enemyScript = enemy.GetComponent<EnemyScript> ();
     }
 
     // Update is called once per frame
