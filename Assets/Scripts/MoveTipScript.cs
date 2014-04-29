@@ -1,24 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//We use this class to control the MoveTipScript, see DoubleJumpTipScript for further details
 public class MoveTipScript : MonoBehaviour {
-	
-	private TipAnimationTrigger tipAnimationTrigger;
+
 	private GameObject tips;
 	public GameObject moveKeys;
 	
-	// Use this for initialization
+	private TipAnimationTrigger tipAnimationTrigger;
+
 	void Start () {
 
 		tips = GameObject.FindWithTag("Tips");
 		tipAnimationTrigger = tips.GetComponent<TipAnimationTrigger> ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-	
+
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if(other.gameObject.tag == "Player")

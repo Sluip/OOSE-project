@@ -1111,15 +1111,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 10
-  healthBar: {fileID: 400006}
   meleeDistance: 5
   minDistance: .800000012
   maxMovementSpeed: 0
   shootingDistance: 10
-  bullet: {fileID: 100000, guid: 6024ac9176ceca84baf7c21ab1ced525, type: 2}
   move: 1
-  shootingRate: 2
+  shootingRate: 5
   hitRate: 1
+  bullet: {fileID: 100000, guid: 6024ac9176ceca84baf7c21ab1ced525, type: 2}
   damage: 1
   shootingDamage: 2
   bulletSpeed: 20000
@@ -1128,6 +1127,7 @@ MonoBehaviour:
   visionEnd: {fileID: 100012}
   visionHigh: {fileID: 100010}
   visionLow: {fileID: 100014}
+  healthBar: {fileID: 400006}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
