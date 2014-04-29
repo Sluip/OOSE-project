@@ -244,6 +244,7 @@ public class EnemyScript : MonoBehaviour
 	void Spotted() {
 		if(LineOfSight()) {
 			spotted = true;
+			transform.FindChild("Alerted").gameObject.SetActive(true);
 		}
 	}
 	public bool IsSpotted() {
