@@ -38,11 +38,14 @@ public class DamageScript : MonoBehaviour
 
         if (Input.GetKeyDown("j") && (animCoolDown <= 0f))
         {
-			anim.SetTrigger("hit");
 			animCoolDown = hitRate;
-
+			if (enemyScript == null)
+			{
+				anim.SetTrigger("hit");		
+			}
+			else {
             CanAttack();
-
+			}
         }
     }
 
@@ -69,10 +72,11 @@ public class DamageScript : MonoBehaviour
     {
         if (canAttack && enemyScript.IsSpotted())
         {
-			
+			anim.SetTrigger("hit");	
 			canAttack = false;
             damageCooldown = hitRate;
-		    enemyScript.Hurt(damage);		
+		    enemyScript.Hurt(damage);
+				
 		}
         else if (canAttack && !enemyScript.IsSpotted())
         {
