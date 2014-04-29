@@ -30,6 +30,7 @@ public class EnemyScript : MonoBehaviour
 	public GameObject visionStart, visionEnd, visionHigh, visionLow;
 	private int playerLayer;
 	private bool aiming;
+	private bool spotted;
 	
 	
 	// Use this for initialization
@@ -42,6 +43,7 @@ public class EnemyScript : MonoBehaviour
 		healthScript = player.GetComponent<HealthScript>();
 		healthBar.transform.renderer.material.color = Color.red;
 		anim = enemy.GetComponent<Animator>();
+		InvokeRepeating("Patrol",4f,4f);
 		enemyLayer = 1 << 13;
 		playerLayer = 1 << 8 | 1 << 14;
 	}
@@ -52,8 +54,9 @@ public class EnemyScript : MonoBehaviour
 		{
 			
 			float distance = Vector2.Distance(transform.position, player.position);
+			bool playerSpotted;
 			
-			if (distance <= shootingDistance && distance >= meleeDistance)
+			if (distance <= shootingDistance && distance >= meleeDistance && spotted)
 			{
 				
 				if (shootingCooldown <= 0 && LineOfSight())
@@ -62,7 +65,7 @@ public class EnemyScript : MonoBehaviour
 					Shoot();
 				}
 			}
-			else if (distance <= meleeDistance && distance >= minDistance)
+			else if (distance <= meleeDistance && distance >= minDistance && spotted)
 			{
 				aiming = false;
 				//Making a relativity vector between player and enemy
@@ -99,7 +102,8 @@ public class EnemyScript : MonoBehaviour
 		Debug.DrawLine(visionStart.transform.position, visionEnd.transform.position, Color.red);
 		Debug.DrawLine(visionStart.transform.position, visionHigh.transform.position, Color.red);
 		Debug.DrawLine(visionStart.transform.position, visionLow.transform.position, Color.red);
-
+		Spotted();
+		
 		anim.SetBool("aim", aiming);
 
 		// Death
@@ -229,6 +233,23 @@ public class EnemyScript : MonoBehaviour
 		
 		return playerSpotted;
 	}
+	void Patrol() {
+		if (!LineOfSight() && !spotted) {
+			Flip();
+		}
+	}
+	
+	void Spotted() {
+		if(LineOfSight()) {
+			spotted = true;
+		}
+	}
+	public bool IsSpotted() {
+		return spotted;
+	}
+	
+	
+	
 	
 	
 }

@@ -8,7 +8,6 @@ public class DamageScript : MonoBehaviour
     public float hitRate;
     private bool canAttack = false;
     private float damageCooldown;
-    public Transform enemy;
     private Animator anim;
     public Transform player;
     private float animCoolDown;
@@ -21,7 +20,6 @@ public class DamageScript : MonoBehaviour
         damageCooldown = 0f;
         animCoolDown = 0f;
         anim = player.GetComponent<Animator>();
-		enemyScript = enemy.GetComponent<EnemyScript> ();
     }
 
     // Update is called once per frame
@@ -50,22 +48,34 @@ public class DamageScript : MonoBehaviour
 
 
     // Melee system
-    void OnTriggerStay2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D enemy)
     {
-        if (other.gameObject.tag == "Enemy")
+    	
+        if (enemy.gameObject.tag == "Enemy")
         {
             if (damageCooldown <= 0f)
                 canAttack = true;
         }
     }
-
+	void OnTriggerEnter2D(Collider2D enemy)
+	{
+		
+		if (enemy.gameObject.tag == "Enemy")
+		{
+			enemyScript = enemy.GetComponent<EnemyScript>();
+		}
+	}
     void CanAttack()
     {
-        if (canAttack)
+        if (canAttack && enemyScript.IsSpotted())
         {
             canAttack = false;
             damageCooldown = hitRate;
-		    enemy.gameObject.GetComponent<EnemyScript>().Hurt(damage);
+		    enemyScript.Hurt(damage);
+        }
+        else if (canAttack && !enemyScript.IsSpotted())
+        {
+        	Debug.Log ("Backstab");
         }
     }
 }
