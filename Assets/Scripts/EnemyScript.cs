@@ -41,7 +41,7 @@ public class EnemyScript : MonoBehaviour
 		healthBar.transform.renderer.material.color = Color.red;
 		anim = enemy.GetComponent<Animator>();
 		//Bitwise operations to make integers of the correct layers needed later
-		enemyLayer = 1 << 13;
+		enemyLayer = 1 << 13 | 1 << 15;
 		playerLayer = 1 << 8 | 1 << 14;
 		//Call Patrol after 4 seconds and call it again every 4 seconds from then on.
 		InvokeRepeating("Patrol",4f,4f);
