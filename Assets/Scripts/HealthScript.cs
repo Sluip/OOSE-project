@@ -9,8 +9,9 @@ public class HealthScript : MonoBehaviour
     private bool isDead;
 
 	private HealthBarDestroyer healthBarDestroyer;
+	private GameOverSoundScript gameOverSoundScript;
 	
-    private GameObject healthBarPlayer;
+    private GameObject healthBarPlayer, gameOverSound;
 
     void Start()
     {
@@ -18,6 +19,8 @@ public class HealthScript : MonoBehaviour
 		HP = 10f;
 		healthBarPlayer = GameObject.FindWithTag("HealthBarPlayer");
 		healthBarDestroyer = healthBarPlayer.GetComponent<HealthBarDestroyer>();
+		gameOverSound = GameObject.FindWithTag("Foreground");
+		gameOverSoundScript = gameOverSound.GetComponent<GameOverSoundScript> ();
     }
 
     // Update is called once per frame
@@ -27,6 +30,7 @@ public class HealthScript : MonoBehaviour
         if (HP <= 0)
         {
             isDead = true;
+			gameOverSoundScript.GameOverSound();
             Destroy(gameObject);
         }
         //Call Death() if player falls below a certain point

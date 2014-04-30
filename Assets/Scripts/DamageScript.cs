@@ -5,15 +5,18 @@ public class DamageScript : MonoBehaviour
 {
 
     public int damage = 1;
-    private int playerLayer;
+    private int enemyLayer;
     
     public float hitRate, damageCooldown, animCoolDown;
     private bool canAttack;
     
     private Animator anim;
 	private EnemyScript enemyScript;
+	private PlayerAudioScript playerAudioScript;
 
     public Transform player, playerVisionStart, playerVisionEnd;
+
+	private GameObject playerSound;
 
     // Use this for initialization
     void Start()
@@ -25,8 +28,12 @@ public class DamageScript : MonoBehaviour
         animCoolDown = 0f;
         //Finding the animator component to control the animation
         anim = player.GetComponent<Animator>();
-		playerLayer = 1 << 8 | 1 << 14;
+		enemyLayer = 1 << 13;
         
+
+		playerSound = GameObject.FindWithTag("PlayerSound");
+		playerAudioScript = playerSound.GetComponent<PlayerAudioScript> ();
+
     }
 
     // Update is called once per frame
@@ -48,7 +55,8 @@ public class DamageScript : MonoBehaviour
 			animCoolDown = hitRate;
 			if (enemyScript == null)
 			{
-				anim.SetTrigger("hit");		
+				anim.SetTrigger("hit");
+				playerAudioScript.SwingSound();
 			}
 			else {
             CanAttack();
@@ -84,11 +92,13 @@ public class DamageScript : MonoBehaviour
 			anim.SetTrigger("hit");	
 			canAttack = false;
             damageCooldown = hitRate;
+            
 			if (LineOfSight())
 			{
+				//If the enemy is in range, deal damage to him
 		    	enemyScript.Hurt(damage);
+                playerAudioScript.PunchSound();
 			}
-			
 		}
         //If you are not spotted by the enemy, it means he is not facing you and you therefore backstab instead, dealing 100
         //See IsSpotted() and LineOfSight() declaration in EnemyScript for more details on how this is performed.
@@ -97,12 +107,13 @@ public class DamageScript : MonoBehaviour
         	anim.SetTrigger ("stab");
         	damageCooldown = hitRate;
         	enemyScript.Hurt (100);
+			playerAudioScript.StabSound();
         }
     }
     private bool LineOfSight() {
 		bool enemySpotted = false;
 		//Casts 1 Raycast from the player to make sure he is in range of and facing the enemy
-		RaycastHit2D hit = Physics2D.Linecast(playerVisionStart.transform.position, playerVisionEnd.transform.position, ~playerLayer);
+		RaycastHit2D hit = Physics2D.Linecast(playerVisionStart.transform.position, playerVisionEnd.transform.position, enemyLayer);
 		//Checks collision on all cast ray, and if the player enters any of the ray, set playerSpotted to true and return this, if not it will return false
 		if (hit.collider != null)
 			{
