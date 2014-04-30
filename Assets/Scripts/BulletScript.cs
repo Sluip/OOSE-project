@@ -8,7 +8,7 @@ public class BulletScript : MonoBehaviour
 	private GameObject playerHitbox, player;
 	private HealthScript healthScript;
 	
-	private int playerLayer;
+	private int playerLayer, tipLayer;
 
 	
 
@@ -24,6 +24,7 @@ public class BulletScript : MonoBehaviour
     	Destroy(gameObject, 5);
     	//Using bitwise operation to store an int of the possible LayerMasks the player can be on
     	playerLayer = 1 << 8 | 1 << 14;
+		tipLayer = 1 << 15;
     }
 
     // Update is called once per frame
@@ -42,7 +43,7 @@ public class BulletScript : MonoBehaviour
     			Destroy (gameObject);
     		}
     		//If it hits anything else, destroy it without dealing damage.
-    		else if (Physics2D.Raycast(transform.position, rayDirection.normalized,1.0f)){
+			else if (Physics2D.Raycast(transform.position, rayDirection.normalized,0.2f, ~tipLayer)){
     			Destroy(gameObject);
     		}	
     	}

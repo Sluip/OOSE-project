@@ -51,7 +51,8 @@ public class DamageScript : MonoBehaviour
 			animCoolDown = hitRate;
 			if (enemyScript == null)
 			{
-				anim.SetTrigger("hit");		
+				anim.SetTrigger("hit");
+				playerAudioScript.SwingSound();
 			}
 			else {
             CanAttack();
@@ -88,6 +89,7 @@ public class DamageScript : MonoBehaviour
 			canAttack = false;
             damageCooldown = hitRate;
 		    enemyScript.Hurt(damage);
+			playerAudioScript.PunchSound();
 				
 		}
         //If you are not spotted by the enemy, it means he is not facing you and you therefore backstab instead, dealing 100
@@ -97,6 +99,7 @@ public class DamageScript : MonoBehaviour
         	anim.SetTrigger ("stab");
         	damageCooldown = hitRate;
         	enemyScript.Hurt (100);
+			playerAudioScript.StabSound();
         }
     }
 }
