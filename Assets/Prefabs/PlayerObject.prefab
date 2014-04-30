@@ -1445,6 +1445,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   hitRate: .25
+  damageCooldown: 0
+  animCoolDown: 0
   player: {fileID: 400002}
 --- !u!114 &11400002
 MonoBehaviour:
@@ -1459,8 +1461,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxMovementSpeed: 6
   bitch: {fileID: 400002}
-  move: 0
-  flipped: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1472,12 +1472,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619d5bcfbd2235e4293da100cf105c4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundChecker: {fileID: 400000}
-  player: {fileID: 400002}
-  startJumpSpeed: 0
   maxJumpSpeed: 800
   speedLimiter: 21
   deathThreshold: -35
+  groundChecker: {fileID: 400000}
+  player: {fileID: 400002}
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1489,8 +1488,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f944d3a67fd7438a12bb94b5c72f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
-  something: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

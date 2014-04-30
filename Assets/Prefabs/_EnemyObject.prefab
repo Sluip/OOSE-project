@@ -167,9 +167,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400020}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: Sound
-  m_TagString: Untagged
+  m_TagString: EnemySound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1111,6 +1112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 10
+  damage: 1
+  shootingDamage: 2
   meleeDistance: 5
   minDistance: .800000012
   maxMovementSpeed: 0
@@ -1118,16 +1121,25 @@ MonoBehaviour:
   move: 1
   shootingRate: 5
   hitRate: 1
-  bullet: {fileID: 100000, guid: 6024ac9176ceca84baf7c21ab1ced525, type: 2}
-  damage: 1
-  shootingDamage: 2
   bulletSpeed: 20000
-  enemy: {fileID: 400002}
   visionStart: {fileID: 100008}
   visionEnd: {fileID: 100012}
   visionHigh: {fileID: 100010}
   visionLow: {fileID: 100014}
+  bullet: {fileID: 100000, guid: 6024ac9176ceca84baf7c21ab1ced525, type: 2}
+  enemy: {fileID: 400002}
   healthBar: {fileID: 400006}
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d561dea60a066be499e0ed710dfcbe84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

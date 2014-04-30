@@ -12,11 +12,13 @@ public class EnemyScript : MonoBehaviour
 	public float shootingRate, hitRate, bulletSpeed;
 	private float damageCooldown, shootingCooldown;
 
-	private bool right, canAttack, aiming, spotted;
+	private bool right, canAttack, aiming, spotted, alarmSoundPlayed, dyingSoundPlayed, reloadSoundPlayed;
 	
 	private HealthScript healthScript;
+	private EnemyAudioScript enemyAudioScript;
 
 	public GameObject visionStart, visionEnd, visionHigh, visionLow, bullet;
+	private GameObject enemySound;
 
 	private Animator anim;
 
@@ -43,6 +45,9 @@ public class EnemyScript : MonoBehaviour
 		playerLayer = 1 << 8 | 1 << 14;
 		//Call Patrol after 4 seconds and call it again every 4 seconds from then on.
 		InvokeRepeating("Patrol",4f,4f);
+		enemySound = GameObject.FindWithTag("EnemySound");
+		enemyAudioScript = enemySound.GetComponent<EnemyAudioScript> ();
+		alarmSoundPlayed = false;
 	}
 	
 	void FixedUpdate()
@@ -59,6 +64,9 @@ public class EnemyScript : MonoBehaviour
 				{
 					anim.SetTrigger ("shoot");
 					Shoot();
+					enemyAudioScript.GunshotSound();
+					reloadSoundPlayed = false;
+					enemyAudioScript.CartridgesSound();
 				}
 			}
 			//If the enemy is within melee distance and it has spotted you, it will proceed. 
@@ -112,6 +120,12 @@ public class EnemyScript : MonoBehaviour
 		{
 			anim.SetTrigger("Death");
 			Destroy(gameObject, 1);
+			if(!dyingSoundPlayed)
+			{
+				enemyAudioScript.DyingSound();
+				dyingSoundPlayed = true;
+			}
+
 		}
 		//Cooldown countdown on melee and shooting respectively
 		if (damageCooldown > 0)
@@ -124,6 +138,9 @@ public class EnemyScript : MonoBehaviour
 			if (LineOfSight())
 			{
 				aiming = true;
+				if(!reloadSoundPlayed)
+				enemyAudioScript.ReloadSound();
+				reloadSoundPlayed = true;
 			}
 			shootingCooldown -= Time.deltaTime;
 		}
@@ -245,6 +262,10 @@ public class EnemyScript : MonoBehaviour
 		if(LineOfSight()) {
 			spotted = true;
 			transform.FindChild("Alerted").gameObject.SetActive(true);
+
+			if(!alarmSoundPlayed)
+			enemyAudioScript.AlarmSound();
+			alarmSoundPlayed = true;
 		}
 	}
 	//Returns the current state of spotted to use in other classes

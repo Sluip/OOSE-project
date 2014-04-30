@@ -23,6 +23,8 @@ TagManager:
   - PlayerInner
   - HealthBarPlayer
   - EnemySound
+  - PlayerSound
+  - Foreground
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -39,7 +41,7 @@ TagManager:
   User Layer 12: Damagebox
   User Layer 13: Enemy
   User Layer 14: Hitbox
-  User Layer 15: 
+  User Layer 15: Tips
   User Layer 16: 
   User Layer 17: 
   User Layer 18: 

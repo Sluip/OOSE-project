@@ -6,7 +6,6 @@ public class PlayerAudioScript : MonoBehaviour {
 	private Transform punch;
 	private Transform swing;
 	private Transform stab;
-	private Transform gameOver;
 	private Transform run;
 	private Transform runGrass;
 	
@@ -23,9 +22,6 @@ public class PlayerAudioScript : MonoBehaviour {
 			
 			else if (transform.GetChild(i).name == "Stab")
 				stab = transform.GetChild(i);
-			
-			else if (transform.GetChild(i).name == "GameOver")
-				gameOver = transform.GetChild(i);
 			
 			else if (transform.GetChild(i).name == "Run")
 				run = transform.GetChild(i);
@@ -53,11 +49,6 @@ public class PlayerAudioScript : MonoBehaviour {
 	public void StabSound()
 	{
 		stab.audio.Play ();
-	}
-	
-	public void GameOverSound()
-	{
-		gameOver.audio.Play ();
 	}
 
 	public void RunSound()

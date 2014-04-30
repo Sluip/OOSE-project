@@ -10,8 +10,11 @@ public class DamageScript : MonoBehaviour
     
     private Animator anim;
 	private EnemyScript enemyScript;
+	private PlayerAudioScript playerAudioScript;
 
     public Transform player;
+
+	private GameObject playerSound;
 
     // Use this for initialization
     void Start()
@@ -23,6 +26,10 @@ public class DamageScript : MonoBehaviour
         animCoolDown = 0f;
         //Finding the animator component to control the animation
         anim = player.GetComponent<Animator>();
+
+		playerSound = GameObject.FindWithTag("PlayerSound");
+		playerAudioScript = playerSound.GetComponent<PlayerAudioScript> ();
+
     }
 
     // Update is called once per frame

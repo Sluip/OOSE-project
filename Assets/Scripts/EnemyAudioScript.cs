@@ -55,4 +55,9 @@ public class EnemyAudioScript : MonoBehaviour {
 	{
 		reload.audio.Play ();
 	}
+
+	public void CartridgesSound()
+	{
+		cartridges.audio.Play ();
+	}
 }
