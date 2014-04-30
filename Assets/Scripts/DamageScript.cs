@@ -5,6 +5,8 @@ public class DamageScript : MonoBehaviour
 {
 
     public int damage = 1;
+    private int enemyLayer;
+    
     public float hitRate, damageCooldown, animCoolDown;
     private bool canAttack;
     
@@ -12,7 +14,7 @@ public class DamageScript : MonoBehaviour
 	private EnemyScript enemyScript;
 	private PlayerAudioScript playerAudioScript;
 
-    public Transform player;
+    public Transform player, playerVisionStart, playerVisionEnd;
 
 	private GameObject playerSound;
 
@@ -26,6 +28,8 @@ public class DamageScript : MonoBehaviour
         animCoolDown = 0f;
         //Finding the animator component to control the animation
         anim = player.GetComponent<Animator>();
+		enemyLayer = 1 << 13;
+        
 
 		playerSound = GameObject.FindWithTag("PlayerSound");
 		playerAudioScript = playerSound.GetComponent<PlayerAudioScript> ();
@@ -88,9 +92,13 @@ public class DamageScript : MonoBehaviour
 			anim.SetTrigger("hit");	
 			canAttack = false;
             damageCooldown = hitRate;
-		    enemyScript.Hurt(damage);
-			playerAudioScript.PunchSound();
-				
+            
+			if (LineOfSight())
+			{
+				//If the enemy is in range, deal damage to him
+		    	enemyScript.Hurt(damage);
+                playerAudioScript.PunchSound();
+			}
 		}
         //If you are not spotted by the enemy, it means he is not facing you and you therefore backstab instead, dealing 100
         //See IsSpotted() and LineOfSight() declaration in EnemyScript for more details on how this is performed.
@@ -102,5 +110,18 @@ public class DamageScript : MonoBehaviour
 			playerAudioScript.StabSound();
         }
     }
+    private bool LineOfSight() {
+		bool enemySpotted = false;
+		//Casts 1 Raycast from the player to make sure he is in range of and facing the enemy
+		RaycastHit2D hit = Physics2D.Linecast(playerVisionStart.transform.position, playerVisionEnd.transform.position, enemyLayer);
+		//Checks collision on all cast ray, and if the player enters any of the ray, set playerSpotted to true and return this, if not it will return false
+		if (hit.collider != null)
+			{
+				if (hit.collider.tag == "Enemy")
+				{
+					enemySpotted = true;
+				}
+			}
+		return enemySpotted;
+	}
 }
-
