@@ -5,13 +5,15 @@ public class DamageScript : MonoBehaviour
 {
 
     public int damage = 1;
+    private int playerLayer;
+    
     public float hitRate, damageCooldown, animCoolDown;
     private bool canAttack;
     
     private Animator anim;
 	private EnemyScript enemyScript;
 
-    public Transform player;
+    public Transform player, playerVisionStart, playerVisionEnd;
 
     // Use this for initialization
     void Start()
@@ -23,6 +25,8 @@ public class DamageScript : MonoBehaviour
         animCoolDown = 0f;
         //Finding the animator component to control the animation
         anim = player.GetComponent<Animator>();
+		playerLayer = 1 << 8 | 1 << 14;
+        
     }
 
     // Update is called once per frame
@@ -80,8 +84,11 @@ public class DamageScript : MonoBehaviour
 			anim.SetTrigger("hit");	
 			canAttack = false;
             damageCooldown = hitRate;
-		    enemyScript.Hurt(damage);
-				
+			if (LineOfSight())
+			{
+		    	enemyScript.Hurt(damage);
+			}
+			
 		}
         //If you are not spotted by the enemy, it means he is not facing you and you therefore backstab instead, dealing 100
         //See IsSpotted() and LineOfSight() declaration in EnemyScript for more details on how this is performed.
@@ -92,5 +99,18 @@ public class DamageScript : MonoBehaviour
         	enemyScript.Hurt (100);
         }
     }
+    private bool LineOfSight() {
+		bool enemySpotted = false;
+		//Casts 1 Raycast from the player to make sure he is in range of and facing the enemy
+		RaycastHit2D hit = Physics2D.Linecast(playerVisionStart.transform.position, playerVisionEnd.transform.position, ~playerLayer);
+		//Checks collision on all cast ray, and if the player enters any of the ray, set playerSpotted to true and return this, if not it will return false
+		if (hit.collider != null)
+			{
+				if (hit.collider.tag == "Enemy")
+				{
+					enemySpotted = true;
+				}
+			}
+		return enemySpotted;
+	}
 }
-

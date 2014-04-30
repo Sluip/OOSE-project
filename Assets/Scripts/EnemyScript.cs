@@ -5,7 +5,7 @@ public class EnemyScript : MonoBehaviour
 {
 	
 	public int HP, damage, shootingDamage;
-	private int enemyLayer, playerLayer;
+	private int enemyLayer;
 
 	public float meleeDistance, minDistance, maxMovementSpeed, shootingDistance;
 	public float move;
@@ -40,7 +40,6 @@ public class EnemyScript : MonoBehaviour
 		anim = enemy.GetComponent<Animator>();
 		//Bitwise operations to make integers of the correct layers needed later
 		enemyLayer = 1 << 13 | 1 << 15;
-		playerLayer = 1 << 8 | 1 << 14;
 		//Call Patrol after 4 seconds and call it again every 4 seconds from then on.
 		InvokeRepeating("Patrol",4f,4f);
 	}

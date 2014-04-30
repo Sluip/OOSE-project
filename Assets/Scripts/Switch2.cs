@@ -2,7 +2,7 @@
 using System.Collections;
 
 //We use this class to control the interactable switches
-public class Switch : MonoBehaviour
+public class Switch2 : MonoBehaviour
 {
 	public GameObject button;
 	private GameObject[] doors;
