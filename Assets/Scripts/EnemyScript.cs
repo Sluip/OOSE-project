@@ -44,7 +44,7 @@ public class EnemyScript : MonoBehaviour
 		enemyLayer = 1 << 13 | 1 << 15;
 		//Call Patrol after 4 seconds and call it again every 4 seconds from then on.
 		InvokeRepeating("Patrol",4f,4f);
-		enemySound = GameObject.FindWithTag("EnemySound");
+		enemySound = gameObject.transform.FindChild("Sound").gameObject;
 		enemyAudioScript = enemySound.GetComponent<EnemyAudioScript> ();
 		alarmSoundPlayed = false;
 	}
