@@ -174,7 +174,7 @@ GameObject:
   - 4: {fileID: 400038}
   - 82: {fileID: 8200006}
   m_Layer: 0
-  m_Name: RunGrass
+  m_Name: Sprint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -569,11 +569,11 @@ AudioSource:
   m_GameObject: {fileID: 100038}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: a4244dc286803da42a2c1c0efe462f95, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 32003330719f6354f9171012606542bb, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: .300000012
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Priority: 128
   DopplerLevel: 1
@@ -627,11 +627,11 @@ AudioSource:
   m_GameObject: {fileID: 100040}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 32003330719f6354f9171012606542bb, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ee3a8a2411b1fbb42a6266701d2156f5, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: .100000001
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Priority: 128
   DopplerLevel: 1

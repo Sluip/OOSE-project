@@ -7,7 +7,7 @@ public class PlayerAudioScript : MonoBehaviour {
 	private Transform swing;
 	private Transform stab;
 	private Transform run;
-	private Transform runGrass;
+	private Transform sprint;
 	
 	// Use this for initialization
 	void Start () {
@@ -26,8 +26,8 @@ public class PlayerAudioScript : MonoBehaviour {
 			else if (transform.GetChild(i).name == "Run")
 				run = transform.GetChild(i);
 
-			else if (transform.GetChild(i).name == "RunGrass")
-				runGrass = transform.GetChild(i);
+			else if (transform.GetChild(i).name == "Sprint")
+				sprint = transform.GetChild(i);
 		}
 	}
 	
@@ -56,8 +56,34 @@ public class PlayerAudioScript : MonoBehaviour {
 		run.audio.Play ();
 	}
 
-	public void RunGrassSound()
+	public void RunSoundStop()
 	{
-		runGrass.audio.Play ();
+		run.audio.Stop ();
+	}
+
+	public bool IsRunSoundPlaying()
+	{
+		if(run.audio.isPlaying)
+			return true;
+		else
+			return false;
+	}
+
+	public void SprintSound()
+	{
+		sprint.audio.Play ();
+	}
+
+	public void SprintSoundStop()
+	{
+		sprint.audio.Stop ();
+	}
+
+	public bool IsSprintSoundPlaying()
+	{
+		if(sprint.audio.isPlaying)
+			return true;
+		else
+			return false;
 	}
 }
